@@ -1,16 +1,55 @@
 # hyperlego
 
-a [Sails v1](https://sailsjs.com) application
+a [Sails v1](https://sailsjs.com) and [Angular5](https://angular.io) application
 
-### Version info
+## Developing
 
-This app was originally generated on Sat Apr 14 2018 21:04:31 GMT-0500 (CDT) using Sails v1.0.1.
+### Requirements
+have [nodejs](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/getting-started/installing-node) installed
+
+### Installation
+
+#### 1. install angular-cli and sails globally
+
+```bash
+$ npm i -g sails @angular/cli
+```
+
+#### 2. clone the github repo
+
+```bash
+$ mkdir hyperlego && cd $_
+$ git clone git@github.com:iammarix/hyperlego.git .
+$ git submodule sync
+```
+
+#### 3. install dependencies
+```bash
+$ npm install
+```
+
+### Live Viewing
+#### both client & server
+```bash
+$ npm run start
+```
+view @ http://localhost:4200/
+#### just server
+```bash
+$ sails lift
+```
+hit @ http://localhost:1337/api/{endpoint}/
+#### just client
+```bash
+$ ng serve
+```
+view @ http://localhost:4200/
+### Testing
+```bash
+$ npm run test
+```
+
 
 <!-- Internally, Sails used [`sails-generate@1.15.20`](https://github.com/balderdashy/sails-generate/tree/v1.15.20/lib/core-generators/new). -->
 
-
-
-<!--
-Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
--->
 

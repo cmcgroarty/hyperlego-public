@@ -55,11 +55,6 @@
   },
   "defaults": {
     "styleExt": "sass",
-    "component": {},
-	"serve": {
-			"port": 9100,
-			"host": "0.0.0.0",
-			"publicHost": "d.idesignconsulting.com"
-		}
+    "component": {}
   }
 }
