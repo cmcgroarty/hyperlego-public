@@ -31,15 +31,15 @@
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
-    "@sailshq/eslint": "^4.19.3",
     "@angular/cli": "^1.7.4",
     "@angular/compiler-cli": "^5.2.0",
-    "@angular/language-service": "^5.2.0",
+    "@angular/language-service": "^5.2.9",
+    "@sailshq/eslint": "^4.19.3",
+    "@types/core-js": "^0.9.41",
     "@types/hammerjs": "^2.0.35",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
-    "@types/core-js": "^0.9.41",
     "codelyzer": "^4.0.1",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -48,14 +48,14 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-	"npm-run-all": "^4.1.1",
+    "npm-run-all": "^4.1.1",
     "protractor": "~5.1.2",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "~2.5.3"
   },
   "scripts": {
-	"old_start": "NODE_ENV=production node app.js",
+    "old_start": "NODE_ENV=production node app.js",
     "old_test": "npm run lint && npm run custom-tests && echo 'Done.'",
     "old_lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
     "old_custom-tests": "echo \"(No other custom tests yet.)\" && echo",
@@ -71,10 +71,10 @@
     "prod": "sails lift --prod",
     "dev": "sails lift",
     "debug": "node --inspect app.js",
-	"test": "ng test",
+    "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
-  },  
+  },
   "main": "app.js",
   "repository": {
     "type": "git",
