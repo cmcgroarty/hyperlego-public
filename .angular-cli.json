@@ -1,0 +1,65 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "hyperlego"
+  },
+  "apps": [
+    {
+      "root": "assets",
+      "outDir": "assets/dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "angular/main.ts",
+      "polyfills": "angular/polyfills.ts",
+      "test": "angular/test.ts",
+      "tsconfig": "angular/tsconfig.app.json",
+      "testTsconfig": "angular/tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "angular/styles.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "angular/environments/environment.ts",
+      "environments": {
+        "dev": "angular/environments/environment.ts",
+        "prod": "angular/environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "../protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "angular/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "angular/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "test/angular/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "sass",
+    "component": {},
+	"serve": {
+			"port": 9100,
+			"host": "0.0.0.0",
+			"publicHost": "d.idesignconsulting.com"
+		}
+  }
+}
