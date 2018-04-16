@@ -2,9 +2,9 @@
 
 a [Sails v1](https://sailsjs.com) and [Angular5](https://angular.io) application
 
-## Developing
+## Getting Started 
 
-### Requirements
+### Prerequisites
 have [nodejs](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/getting-started/installing-node) installed
 
 ### Installation
@@ -44,10 +44,15 @@ hit @ http://localhost:1337/api/{endpoint}/
 $ ng serve
 ```
 view @ http://localhost:4200/
-### Testing
+
+## Testing
 ```bash
+$ npm run lint
 $ npm run test
 ```
+
+## Versioning
+We use SemVer for versioning. For the versions available, see the [tags on this repository](/tags).
 
 
 <!-- Internally, Sails used [`sails-generate@1.15.20`](https://github.com/balderdashy/sails-generate/tree/v1.15.20/lib/core-generators/new). -->
