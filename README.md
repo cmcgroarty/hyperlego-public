@@ -52,7 +52,7 @@ $ npm run test
 ```
 
 ## Versioning
-We use SemVer for versioning. For the versions available, see the [tags on this repository](/tags).
+We use SemVer for versioning. For the versions available, see the [tags on this repository](https://github.com/iammarix/hyperlego/tags).
 
 
 <!-- Internally, Sails used [`sails-generate@1.15.20`](https://github.com/balderdashy/sails-generate/tree/v1.15.20/lib/core-generators/new). -->
