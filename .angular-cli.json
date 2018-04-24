@@ -5,43 +5,43 @@
   },
   "apps": [
     {
-      "root": "assets",
-      "outDir": "assets/dist",
+      "root": "assets/angular",
+      "outDir": "assets/angular/dist",
       "assets": [
         "assets",
         "favicon.ico"
       ],
       "index": "index.html",
-      "main": "angular/main.ts",
-      "polyfills": "angular/polyfills.ts",
-      "test": "angular/test.ts",
-      "tsconfig": "angular/tsconfig.app.json",
-      "testTsconfig": "angular/tsconfig.spec.json",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-		"angular/theme.scss",
-        "angular/styles.scss"
+		"theme.scss",
+        "styles.scss"
       ],
       "scripts": [],
-      "environmentSource": "angular/environments/environment.ts",
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "dev": "angular/environments/environment.ts",
-        "prod": "angular/environments/environment.prod.ts"
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
       }
     }
   ],
   "e2e": {
     "protractor": {
-      "config": "../protractor.conf.js"
+      "config": "../../protractor.conf.js"
     }
   },
   "lint": [
     {
-      "project": "angular/tsconfig.app.json",
+      "project": "tsconfig.app.json",
       "exclude": "**/node_modules/**"
     },
     {
-      "project": "angular/tsconfig.spec.json",
+      "project": "tsconfig.spec.json",
       "exclude": "**/node_modules/**"
     },
     {
@@ -55,7 +55,7 @@
     }
   },
   "defaults": {
-    "styleExt": "sass",
+    "styleExt": "scss",
     "component": {},
 	"serve": {
 			"host": "0.0.0.0"
