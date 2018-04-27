@@ -7,18 +7,20 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
 	{
 		path: '',
-		redirectTo: 'form',
+		redirectTo: '',
 		pathMatch: 'full'
 	},
 	{
 		path: 'login',
 		component: LoginComponent
 	},
+	/*
 	{
 		path: 'admin',
 		canActivate: [AuthGuard],
 		loadChildren: '../admin/admin.module#AdminModule'
 	},
+	*/
 	{
 		path: 'team',
 		loadChildren: '../team/team.module#TeamModule'

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./teams.component.scss']
 })
 export class TeamsComponent implements OnInit {
+	title = 'Teams';
 
   constructor() { }
 

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+	private LOGO = require('./Logo_2015.svg');
+
   constructor() { }
 
   ngOnInit() {

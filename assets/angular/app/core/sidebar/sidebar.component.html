@@ -1,3 +1,11 @@
-<p>
-  sidebar works!
-</p>
+<img [src]="LOGO" style="max-width: 60%;"/>
+<mat-nav-list>
+	<mat-list-item routerLink="/">
+		<mat-icon matListIcon>home</mat-icon>
+		<p matLine>Home</p>
+	</mat-list-item>
+	<mat-list-item routerLink="/team">
+		<mat-icon matListIcon>group</mat-icon>
+		<p matLine>Team</p>
+	</mat-list-item>
+</mat-nav-list>
