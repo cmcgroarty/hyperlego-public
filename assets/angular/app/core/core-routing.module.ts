@@ -1,14 +1,14 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { AuthGuard } from './guards/auth.guard';
-import { LoginComponent } from './login/login.component';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {NotFoundComponent} from './components/not-found/not-found.component';
+import {AuthGuard} from './guards/auth.guard';
+import {LoginComponent} from './components/login/login.component';
+import {HomeComponent} from "./components/home/home.component";
 
 const routes: Routes = [
 	{
 		path: '',
-		redirectTo: '',
-		pathMatch: 'full'
+		component: HomeComponent
 	},
 	{
 		path: 'login',
@@ -35,4 +35,5 @@ const routes: Routes = [
 	imports: [RouterModule.forRoot(routes)],
 	exports: [RouterModule]
 })
-export class CoreRoutingModule { }
+export class CoreRoutingModule {
+}

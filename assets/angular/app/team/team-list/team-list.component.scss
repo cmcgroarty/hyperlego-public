@@ -1,0 +1,17 @@
+.mat-display-4,.mat-display-3,.mat-display-2,.mat-display-1 {
+	margin-bottom: 0;
+}
+
+.mat-nav-list {
+	.mat-list-item {
+		height: fit-content;
+		padding: 1rem 0;
+
+		.teamInfo {
+			.mat-title, .mat-subheading-2, .mat-caption {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+

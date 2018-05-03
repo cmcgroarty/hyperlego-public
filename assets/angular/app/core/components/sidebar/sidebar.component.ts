@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Output, OnInit, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-	private LOGO = require('./Logo_2015.svg');
+	LOGO = require('./Logo_2015.svg');
+	@Output() closeSidenav = new EventEmitter<boolean>();
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
+
+
 
 }

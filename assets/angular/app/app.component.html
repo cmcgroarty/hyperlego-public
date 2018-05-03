@@ -1,13 +1,11 @@
 <mat-sidenav-container>
-	<mat-sidenav #sidenav mode="push" role="navigation"><app-sidebar></app-sidebar></mat-sidenav>
+	<mat-sidenav #sidenav mode="push" role="navigation"><app-sidebar (closeSidenav)="sidenav.close()"></app-sidebar></mat-sidenav>
 	<mat-sidenav-content role="main">
 		<mat-toolbar color="primary">
 			<button mat-icon-button (click)="sidenav.toggle()">
 				<mat-icon>menu</mat-icon>
 			</button>
-			<span>hyperlego</span>
-			<mat-icon>chevron_right</mat-icon>
-			<span>{{ title }}</span>
+			<app-title></app-title>
 		</mat-toolbar>
 		<router-outlet></router-outlet>
 	</mat-sidenav-content>

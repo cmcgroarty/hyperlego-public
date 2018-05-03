@@ -1,3 +1,16 @@
-<p>
-  team-list works!
-</p>
+<mat-nav-list>
+	<mat-list-item [@fadeInOut] *ngFor="let team of teams | orderBy:'id' | byDivision:division as filtered" routerLink="/team/{{team.id}}/">
+		<div fxLayout="row" fxFlexFill fxLayoutGap="2rem">
+			<div fxLayout="column" fxLayoutAlign="center center">
+				<div fxFlexFill><span class="mat-display-1">#</span><span class="mat-display-2" >{{team.id | number:'2.0-0'}}</span></div>
+
+			</div>
+			<div class="teamInfo" fxLayout="column" fxLayoutAlign="center start">
+				<div class="mat-title">{{team.name}}</div>
+				<div class="mat-subheading-2">{{team.school}}</div>
+				<div class="mat-caption">{{team.division}}</div>
+			</div>
+		</div>
+	</mat-list-item>
+	<mat-list-item [hidden]="filtered?.length > 0"><span class="mat-subheading-1">No Teams to Display</span></mat-list-item>
+</mat-nav-list>

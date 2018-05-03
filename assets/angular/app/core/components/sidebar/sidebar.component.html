@@ -1,0 +1,11 @@
+<img [src]="LOGO" style="max-width: 60%;"/>
+<mat-nav-list>
+	<mat-list-item routerLink="/" (click)="closeSidenav.emit(true)">
+		<mat-icon matListIcon>home</mat-icon>
+		<span class="mat-title" matLine>Home</span>
+	</mat-list-item>
+	<mat-list-item routerLink="/team" (click)="closeSidenav.emit(true)">
+		<mat-icon matListIcon>group</mat-icon>
+		<span class="mat-title" matLine>Team</span>
+	</mat-list-item>
+</mat-nav-list>
