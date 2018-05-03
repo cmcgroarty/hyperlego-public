@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Division} from "../../shared/model/division.model";
 import {Team} from "../../shared/model/team.model";
+import {ByDivisionPipe} from "../../shared/pipes/by-division.pipe";
 import {animate, style, transition, trigger} from "@angular/animations";
 
 @Component({
@@ -25,10 +26,14 @@ export class TeamListComponent implements OnInit {
 	@Input() division: Division;
 	@Input() teams: Team[];
 
-	constructor() {
+	constructor(private byDivisionPipe: ByDivisionPipe) {
 	}
 
 	ngOnInit() {
+	}
+
+	filteredTeams():Team[] {
+		return this.byDivisionPipe.transform(this.teams, this.division);
 	}
 
 

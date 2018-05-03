@@ -17,7 +17,8 @@ import {OrderModule} from "ngx-order-pipe";
 		OrderModule,
 		ByDivisionPipe
 	],
-	declarations: [ByDivisionPipe]
+	declarations: [ByDivisionPipe],
+	providers: [ByDivisionPipe],
 })
 export class SharedModule {
 }
