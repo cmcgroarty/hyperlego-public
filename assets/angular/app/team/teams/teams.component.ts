@@ -27,7 +27,6 @@ export class TeamsComponent implements OnInit {
   }
 
   onSelect($event:MatTabChangeEvent):void{
-  	console.log($event.tab.textLabel);
   	switch($event.tab.textLabel){
 			case 'JA':
 				this.tabDivision = Division.JA;
