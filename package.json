@@ -1,9 +1,15 @@
 {
   "name": "hyperlego",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.3.0-dev",
   "description": "a Sails application",
-  "keywords": [],
+  "keywords": [
+    "angular",
+    "sails",
+    "hyper",
+    "lego",
+    "first robotics"
+  ],
   "dependencies": {
     "@angular/animations": "^5.2.0",
     "@angular/cdk": "^5.1.0",
@@ -24,7 +30,10 @@
     "core-js": "^2.4.1",
     "grunt": "1.0.1",
     "hammerjs": "^2.0.8",
+    "ngx-drag-scroll": "^1.7.8",
+    "ngx-moment": "^2.0.0",
     "ngx-order-pipe": "^2.0.1",
+    "ngx-page-scroll": "^4.0.2",
     "rxjs": "^5.5.6",
     "sails": "^1.0.1",
     "sails-hook-grunt": "^3.0.2",
