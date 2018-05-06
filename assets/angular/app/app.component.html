@@ -1,13 +1,17 @@
 <mat-sidenav-container>
-	<mat-sidenav #sidenav mode="push" role="navigation"><app-sidebar (closeSidenav)="sidenav.close()"></app-sidebar></mat-sidenav>
-	<mat-sidenav-content role="main">
+	<mat-sidenav #sidenav mode="push" role="navigation">
+		<app-sidebar (closeSidenav)="sidenav.close()"></app-sidebar>
+	</mat-sidenav>
+	<mat-sidenav-content #sidenavContent role="main">
 		<mat-toolbar color="primary">
 			<button mat-icon-button (click)="sidenav.toggle()">
 				<mat-icon>menu</mat-icon>
 			</button>
 			<app-title></app-title>
 		</mat-toolbar>
-		<router-outlet></router-outlet>
+		<div class="container">
+			<router-outlet></router-outlet>
+		</div>
 	</mat-sidenav-content>
 </mat-sidenav-container>
 
