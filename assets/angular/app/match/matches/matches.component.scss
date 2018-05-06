@@ -1,0 +1,11 @@
+@import '~@angular/material/theming';
+
+.played {
+	mat-card, .mat-card {
+		background: mat-color($mat-gray, 500);;
+	}
+}
+
+.mat-display-4, .mat-display-3, .mat-display-2, .mat-display-1, .mat-title, .mat-subheading-1 {
+	margin-bottom: 0;
+}

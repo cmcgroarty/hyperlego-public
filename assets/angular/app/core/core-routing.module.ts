@@ -26,6 +26,10 @@ const routes: Routes = [
 		loadChildren: '../team/team.module#TeamModule'
 	},
 	{
+		path: 'match',
+		loadChildren: '../match/match.module#MatchModule'
+	},
+	{
 		path: '**',
 		component: NotFoundComponent
 	}
