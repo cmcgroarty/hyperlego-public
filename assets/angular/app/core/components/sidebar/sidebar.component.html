@@ -8,4 +8,8 @@
 		<mat-icon matListIcon>group</mat-icon>
 		<span class="mat-title" matLine>Team</span>
 	</mat-list-item>
+	<mat-list-item routerLink="/match" (click)="closeSidenav.emit(true)">
+		<mat-icon matListIcon>view_agenda</mat-icon>
+		<span class="mat-title" matLine>Schedule</span>
+	</mat-list-item>
 </mat-nav-list>
