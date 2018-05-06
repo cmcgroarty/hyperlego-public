@@ -11,7 +11,8 @@ export interface Team {
 	contactName?: string;
 	contactEmail?: string;
 	here?: boolean;
-	arrived?: DateTimeFormat;
+	arrived?: Date;
 	numKids?: number;
+	//scores?:Score[];
 
 }

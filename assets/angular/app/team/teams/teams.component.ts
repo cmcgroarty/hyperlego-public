@@ -4,7 +4,7 @@ import 'rxjs/add/operator/switchMap';
 import {Observable} from "rxjs/Observable";
 import {Team} from "../../shared/model/team.model";
 import {Division} from "../../shared/model/division.model";
-import {TitleService} from "../../core/services/title.service";
+import {LayoutService} from "../../core/services/layout.service";
 import {MatTabChangeEvent} from "@angular/material";
 
 @Component({
@@ -16,13 +16,13 @@ import {MatTabChangeEvent} from "@angular/material";
 export class TeamsComponent implements OnInit {
 
 	teams: Team[];
-	division = Division;
-	tabDivision:Division;
+	tabDivision:Division = undefined;
+	selectedTab:number = 0;
 
-  constructor(private title:TitleService, private service: TeamService) { }
+  constructor(private layout:LayoutService, private service: TeamService) { }
 
   ngOnInit() {
-  	this.title.setTitle('Teams');
+  	this.layout.setTitle('Teams');
   	this.service.getAllTeams().subscribe(teams => this.teams = teams);
   }
 

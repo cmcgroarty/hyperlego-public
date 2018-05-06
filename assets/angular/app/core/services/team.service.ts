@@ -17,7 +17,7 @@ export class TeamService {
 	}
 
 	getTeam(id: number): Observable<Team> {
-		//return this.http.get<Team>('' + id);
+		//return this.http.get<Team[]>('' + id);
 		return Observable.of(TEAMS.find(team => {return team.id === id;}));
 	}
 

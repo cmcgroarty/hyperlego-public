@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {Division} from "../../shared/model/division.model";
 import {Team} from "../../shared/model/team.model";
 import {ByDivisionPipe} from "../../shared/pipes/by-division.pipe";
@@ -8,6 +8,7 @@ import {animate, style, transition, trigger} from "@angular/animations";
 	selector: 'team-list',
 	templateUrl: './team-list.component.html',
 	styleUrls: ['./team-list.component.scss'],
+	encapsulation: ViewEncapsulation.None,
 	animations: [
 		trigger('fadeInOut', [
 			transition(':enter', [

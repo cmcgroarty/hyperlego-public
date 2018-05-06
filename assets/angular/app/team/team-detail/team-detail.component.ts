@@ -4,7 +4,7 @@ import {Router, ActivatedRoute, ParamMap} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import {Observable} from "rxjs/Observable";
 import {Team} from "../../shared/model/team.model";
-import {TitleService} from "../../core/services/title.service";
+import {LayoutService} from "../../core/services/layout.service";
 
 @Component({
 	selector: 'app-team-detail',
@@ -15,7 +15,7 @@ export class TeamDetailComponent implements OnInit {
 
 	team: Team;
 
-	constructor(private route: ActivatedRoute, private service: TeamService, private title: TitleService) {
+	constructor(private route: ActivatedRoute, private service: TeamService, private layout: LayoutService) {
 	}
 
 	ngOnInit() {
@@ -24,7 +24,7 @@ export class TeamDetailComponent implements OnInit {
 				this.service.getTeam(+params.get('id')))
 			.subscribe(team => {
 				this.team = team;
-				this.title.setTitle('Team #'+team.id);
+				this.layout.setTitle('Team #'+team.id);
 			});
 	}
 

@@ -5,7 +5,12 @@
 .mat-nav-list {
 	.mat-list-item {
 		height: fit-content;
-		padding: 1rem 0;
+
+
+		.mat-list-item-content {
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+		}
 
 		.teamInfo {
 			.mat-title, .mat-subheading-2, .mat-caption {
