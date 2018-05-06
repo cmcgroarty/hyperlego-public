@@ -17,8 +17,13 @@ $hyper-app-warn:    mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $hyper-app-theme: mat-light-theme($hyper-app-primary, $hyper-app-accent, $hyper-app-warn);
+$hyper-dark-theme: mat-dark-theme($hyper-app-primary, $hyper-app-accent, $hyper-app-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($hyper-app-theme);
+
+.hyper-dark-theme {
+	@include angular-material-theme($hyper-dark-theme);
+}
