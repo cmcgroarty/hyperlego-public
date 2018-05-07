@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs/Observable";
-import 'rxjs/add/observable/of';
+import {Observable, of} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {Match} from "../../shared/model/match.model";
 import {MATCHES} from "../../shared/mocks/matches.mock";
@@ -13,12 +12,12 @@ export class MatchService {
 
 	getAllMatches():Observable<Match[]>{
 		//return this.http.get<Match[]>('');
-		return Observable.of(MATCHES);
+		return of(MATCHES);
 	}
 
 	getMatch(id:number):Observable<Match>{
   	//retutn this.http.get<Match>('' + id);
-		return Observable.of(MATCHES.find(match => {return match.id === id;}));
+		return of(MATCHES.find(match => {return match.id === id;}));
 	}
 
 	createMatch(match:Match):Observable<Match> {

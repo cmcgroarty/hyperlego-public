@@ -30,6 +30,10 @@ const routes: Routes = [
 		loadChildren: '../match/match.module#MatchModule'
 	},
 	{
+		path: 'score',
+		loadChildren: '../score/score.module#ScoreModule'
+	},
+	{
 		path: '**',
 		component: NotFoundComponent
 	}

@@ -6,10 +6,14 @@
 	</mat-list-item>
 	<mat-list-item routerLink="/team" (click)="closeSidenav.emit(true)">
 		<mat-icon matListIcon>group</mat-icon>
-		<span class="mat-title" matLine>Team</span>
+		<span class="mat-title" matLine>Teams</span>
 	</mat-list-item>
 	<mat-list-item routerLink="/match" (click)="closeSidenav.emit(true)">
 		<mat-icon matListIcon>view_agenda</mat-icon>
 		<span class="mat-title" matLine>Schedule</span>
+	</mat-list-item>
+	<mat-list-item routerLink="/score" (click)="closeSidenav.emit(true)">
+		<mat-icon matListIcon>subtitles</mat-icon>
+		<span class="mat-title" matLine>Scores</span>
 	</mat-list-item>
 </mat-nav-list>

@@ -1,0 +1,4 @@
+@import 'app/shared/material/material.module';
+html, body, mat-sidenav-container, mat-sidenav-content {
+	min-height: 100vh;
+}
