@@ -1,7 +1,9 @@
 import {ElementRef, Injectable} from '@angular/core';
 import {Title} from "@angular/platform-browser";
 
-@Injectable()
+@Injectable({
+	providedIn: 'root'
+})
 export class LayoutService{
 	private title:string;
 	private globalTitle:string;

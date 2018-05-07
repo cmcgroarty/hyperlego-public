@@ -8,13 +8,10 @@ import {SharedModule} from "../shared/shared.module";
 import {LoginComponent} from "./components/login/login.component";
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
-import {TeamService} from "./services/team.service";
-import {LayoutService} from "./services/layout.service";
 import {AuthGuard} from "./guards/auth.guard";
 import {throwIfAlreadyLoaded} from "./guards/module-import.guard";
 import {TitleComponent} from './components/title/title.component';
 import {HomeComponent} from './components/home/home.component';
-import {MatchService} from "./services/match.service";
 
 
 @NgModule({
@@ -29,8 +26,7 @@ import {MatchService} from "./services/match.service";
 		RouterModule,
 		SidebarComponent,
 		TitleComponent
-	],
-	providers: [AuthGuard, LayoutService, TeamService, MatchService]
+	]
 })
 export class CoreModule {
 	constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

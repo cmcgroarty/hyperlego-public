@@ -4,7 +4,9 @@ import {HttpClient} from "@angular/common/http";
 import {Match} from "../../shared/model/match.model";
 import {MATCHES} from "../../shared/mocks/matches.mock";
 
-@Injectable()
+@Injectable({
+	providedIn: 'root'
+})
 export class MatchService {
 
   constructor(private http:HttpClient) {
@@ -26,7 +28,7 @@ export class MatchService {
 	updateMatch(match:Match):Observable<Match>{
   	return this.http.put(''+match.id, match);
 	}
-	deleteMatch(id:number){
+	deleteMatch(id:number):Observable<Object>{
   	return this.http.delete(''+id);
 	}
 
