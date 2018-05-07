@@ -22,6 +22,7 @@
     "@angular/material": "^6.0.0",
     "@angular/platform-browser": "6.0.0",
     "@angular/platform-browser-dynamic": "6.0.0",
+    "@angular/pwa": "^0.6.0",
     "@angular/router": "6.0.0",
     "@sailshq/connect-redis": "^3.2.1",
     "@sailshq/lodash": "^3.10.3",
@@ -39,7 +40,8 @@
     "sails-hook-grunt": "^3.0.2",
     "sails-hook-orm": "^2.0.0-16",
     "sails-hook-sockets": "^1.4.0",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "@angular/service-worker": "6.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.0",

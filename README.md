@@ -1,8 +1,8 @@
 # hyperlego
 
-a [Sails v1](https://sailsjs.com) and [Angular5](https://angular.io) application
+a [Sails v1](https://sailsjs.com) and [Angular6](https://angular.io) application
 
-## Getting Started 
+## Getting Started
 
 ### Prerequisites
 have [nodejs](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/getting-started/installing-node) installed

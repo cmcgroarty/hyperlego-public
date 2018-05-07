@@ -4,7 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "hyperlego": {
-      "root": "",
+      "root": "angular",
       "sourceRoot": "angular",
       "projectType": "application",
       "architect": {
@@ -18,7 +18,9 @@
             "polyfills": "angular/polyfills.ts",
             "assets": [
               "angular/assets",
-              "angular/assets/favicon.ico"
+              "angular/assets/favicon.ico",
+              "angular/manifest.json",
+							"angular/.htaccess"
             ],
             "styles": [
               "angular/styles.scss"
@@ -41,7 +43,8 @@
                   "replace": "angular/environments/environment.ts",
                   "with": "angular/environments/environment.prod.ts"
                 }
-              ]
+              ],
+              "serviceWorker": true
             }
           }
         },
@@ -76,7 +79,8 @@
             ],
             "assets": [
               "angular/assets",
-              "angular/favicon.ico"
+              "angular/favicon.ico",
+              "src/manifest.json"
             ]
           }
         },
@@ -123,11 +127,11 @@
   "defaultProject": "hyperlego",
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "app",
+      "prefix": "hyper",
       "styleext": "scss"
     },
     "@schematics/angular:directive": {
-      "prefix": "app"
+      "prefix": "hyper"
     }
   }
 }
