@@ -16,3 +16,9 @@ mat-toolbar {
 	width: 100%;
 	height: 100%;
 }
+
+.hyper-list {
+	&.mat-tab-body {
+		height: 0 !important;
+	}
+}

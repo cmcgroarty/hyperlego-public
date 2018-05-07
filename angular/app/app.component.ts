@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild, OnInit} from '@angular/core';
+import {Component, ElementRef, ViewChild, OnInit, ViewEncapsulation} from '@angular/core';
 import {MatSidenavContent} from "@angular/material";
 import {LayoutService} from "./core/services/layout.service";
 import {BreakpointObserver, Breakpoints, BreakpointState} from "@angular/cdk/layout";
@@ -7,7 +7,8 @@ import {Observable} from "rxjs";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+	encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
 	@ViewChild(MatSidenavContent,{read: ElementRef})
