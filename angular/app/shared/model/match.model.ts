@@ -1,5 +1,6 @@
 import {MatchStatus} from './match-status.model';
 import {MatchType} from './match-type.model';
+import {Score} from "./score.model";
 
 export interface Match {
 	id?: number;
@@ -7,5 +8,5 @@ export interface Match {
 	type?:MatchType;
 	round?:number;
 	status?:MatchStatus;
-	//scores?:Score[];
+	scores?:Score[];
 }

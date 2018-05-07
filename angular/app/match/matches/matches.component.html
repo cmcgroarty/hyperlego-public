@@ -1,4 +1,4 @@
-<div #matchesContainer fxFlexFill id="matchesContainer"  fxLayout="column" fxFlex.gt-sm="80" fxFlex.gt-md="60" fxFlex.gt-lg="40" fxLayoutGap="0.5%">
+<div #matchesContainer id="matchesContainer" fxLayout="column" fxFlex.gt-sm="80" fxFlex.gt-md="60" fxFlex.gt-lg="40" fxLayoutGap="0.5%">
 
 	<div *ngFor="let match of matches$ | async | orderBy:'id'"id="match{{match.id}}" [ngClass]="matchStatusClass(match.status)">
 		<mat-card>

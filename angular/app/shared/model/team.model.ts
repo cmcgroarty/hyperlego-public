@@ -1,4 +1,5 @@
 import {Division} from "./division.model";
+import {Score} from "./score.model";
 
 export interface Team {
 	id?: number;
@@ -13,6 +14,6 @@ export interface Team {
 	here?: boolean;
 	arrived?: Date;
 	numKids?: number;
-	//scores?:Score[];
+	scores?:Score[];
 
 }

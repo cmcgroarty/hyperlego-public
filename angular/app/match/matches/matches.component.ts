@@ -7,6 +7,8 @@ import {DOCUMENT} from '@angular/common';
 import {PageScrollInstance, PageScrollService} from "ngx-page-scroll";
 import {Observable, Subject} from "rxjs";
 import {takeUntil} from 'rxjs/operators';
+import {Table} from "../../shared/model/table.model";
+import {Score} from "../../shared/model/score.model";
 
 @Component({
 	selector: 'app-matches',
@@ -18,6 +20,7 @@ export class MatchesComponent implements OnInit, OnDestroy, AfterViewInit {
 	matches$: Observable<Match[]>;
 	playing: Match;
 	private unsubscribe$ = new Subject<void>();
+	table = Table;
 
 
 	constructor(private layout: LayoutService, private service: MatchService, private scroll: PageScrollService, @Inject(DOCUMENT) private document: any) {
@@ -64,6 +67,10 @@ export class MatchesComponent implements OnInit, OnDestroy, AfterViewInit {
 
 	isMatchPlaying(match: Match): boolean {
 		return match.status === MatchStatus.PLAYING;
+	}
+
+	getScoreByTable(scores:Score[], table:Table):Score{
+		return scores.find(score => {return score.table === table;});
 	}
 
 }
