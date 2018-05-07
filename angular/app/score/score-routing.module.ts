@@ -1,16 +1,9 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {ScoreComponent} from "./score.component";
 import {ScoresComponent} from "./scores/scores.component";
 
 const routes: Routes = [
-	{
-		path: '',
-		component: ScoreComponent,
-		children: [
-			{path: '', component: ScoresComponent}
-		]
-	}
+	{path: '', component: ScoresComponent}
 ];
 
 @NgModule({
