@@ -7,7 +7,7 @@ import { TeamService } from '../../core/services/team.service';
 import { Team } from '../../shared/model/team.model';
 
 @Component( {
-	selector: 'app-team-detail',
+	selector: 'hyper-team-detail',
 	templateUrl: './team-detail.component.html',
 	styleUrls: [ './team-detail.component.scss' ]
 } )
@@ -21,8 +21,9 @@ export class TeamDetailComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
-		this.route.paramMap.pipe( switchMap( ( params: ParamMap ) =>
-			this.team$ = this.service.getTeam( +params.get( 'id' ) ) ) );
+		this.team$ = this.route.paramMap.pipe( switchMap( ( params: ParamMap ) => {
+			return this.service.getTeam( +params.get( 'id' ) );
+		} ) );
 		this.team$.pipe( takeUntil( this.unsubscribe$ ) )
 			.subscribe( team => {
 				this.team = team;
