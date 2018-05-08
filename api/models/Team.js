@@ -28,7 +28,7 @@ module.exports = {
 		},
 		division: {
 			type: 'string',
-			enum: ['JQA', 'JA'],
+			enum: [ 'JQA', 'JA' ],
 			required: true
 		},
 		school: {

@@ -1,8 +1,9 @@
-<mat-nav-list>
+<mat-nav-list class="hyper-list">
 	<mat-list-item [@fadeInOut] *ngFor="let team of filteredTeams() | orderBy:'id'" routerLink="/team/{{team.id}}/">
 		<div fxLayout="row" fxFlexFill fxLayoutGap="2rem">
 			<div fxLayout="column" fxLayoutAlign="center center">
-				<div fxFlexFill><span class="mat-display-1">#</span><span class="mat-display-2" >{{team.id | number:'2.0-0'}}</span></div>
+				<div fxFlexFill><span class="mat-display-1">#</span><span class="mat-display-2">{{team.id | number:'2.0-0'}}</span>
+				</div>
 			</div>
 			<div class="teamInfo" fxLayout="column" fxLayoutAlign="center start">
 				<div class="mat-title">{{team.name}}</div>
@@ -11,5 +12,6 @@
 			</div>
 		</div>
 	</mat-list-item>
-	<mat-list-item *ngIf="filteredTeams()?.length < 1"><span class="mat-subheading-1">No Teams to Display</span></mat-list-item>
+	<mat-list-item *ngIf="filteredTeams()?.length < 1"><span class="mat-subheading-1">No Teams to Display</span>
+	</mat-list-item>
 </mat-nav-list>

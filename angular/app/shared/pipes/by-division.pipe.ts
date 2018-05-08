@@ -1,17 +1,17 @@
-import {Pipe, PipeTransform} from '@angular/core';
-import {Division} from "../model/division.model";
+import { Pipe, PipeTransform } from '@angular/core';
+import { Division } from '../model/division.model';
 
-@Pipe({
+@Pipe( {
 	name: 'byDivision'
-})
+} )
 export class ByDivisionPipe implements PipeTransform {
 
-	transform(items: any[], division: Division): any[] {
-		if (!items) return [];
-		if (!division) return items;
-		return items.filter(item => {
+	transform( items: any[], division: Division ): any[] {
+		if ( !items ) return [];
+		if ( !division ) return items;
+		return items.filter( item => {
 			return item.division === division;
-		});
+		} );
 	}
 
 }

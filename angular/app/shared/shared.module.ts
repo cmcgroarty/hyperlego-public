@@ -1,14 +1,14 @@
-import {NgModule} from '@angular/core';
-import {MaterialModule} from './material/material.module';
-import {FlexLayoutModule} from "@angular/flex-layout";
-import {ByDivisionPipe} from './pipes/by-division.pipe';
-
-import {OrderModule} from "ngx-order-pipe";
-import {MomentModule, TimeAgoPipe} from "ngx-moment";
-import {NgxPageScrollModule} from 'ngx-page-scroll';
+import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { DragScrollModule } from 'ngx-drag-scroll';
+import { MomentModule } from 'ngx-moment';
 
-@NgModule({
+import { OrderModule } from 'ngx-order-pipe';
+import { NgxPageScrollModule } from 'ngx-page-scroll';
+import { MaterialModule } from './material/material.module';
+import { ByDivisionPipe } from './pipes/by-division.pipe';
+
+@NgModule( {
 	imports: [
 		MaterialModule,
 		FlexLayoutModule,
@@ -26,8 +26,8 @@ import { DragScrollModule } from 'ngx-drag-scroll';
 		DragScrollModule,
 		ByDivisionPipe
 	],
-	declarations: [ByDivisionPipe],
-	providers: [ByDivisionPipe],
-})
+	declarations: [ ByDivisionPipe ],
+	providers: [ ByDivisionPipe ],
+} )
 export class SharedModule {
 }

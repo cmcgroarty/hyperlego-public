@@ -1,10 +1,10 @@
-import {Table} from "./table.model";
-import {Team} from "./team.model";
-import {Match} from "./match.model";
+import { Match } from './match.model';
+import { Table } from './table.model';
+import { Team } from './team.model';
 
 export interface Score {
-	id?:number;
-	team?:Team;
-	match?:Match;
-	table?:Table;
+	id?: number;
+	team?: Team;
+	match?: Match;
+	table?: Table;
 }

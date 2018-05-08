@@ -1,5 +1,5 @@
 export enum MatchStatus {
-	UNPLAYED = "unplayed",
-	PLAYING = "playing",
-	PLAYED = "played"
+	UNPLAYED = 'unplayed',
+	PLAYING = 'playing',
+	PLAYED = 'played'
 }

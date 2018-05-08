@@ -1,6 +1,8 @@
-<div #matchesContainer id="matchesContainer" fxLayout="column" fxFlex.gt-sm="80" fxFlex.gt-md="60" fxFlex.gt-lg="40" fxLayoutGap="0.5%">
+<div #matchesContainer id="matchesContainer" fxLayout="column" fxFlex.gt-sm="80" fxFlex.gt-md="60" fxFlex.gt-lg="40"
+	 fxLayoutGap="0.5%">
 
-	<div *ngFor="let match of matches$ | async | orderBy:'id'"id="match{{match.id}}" [ngClass]="matchStatusClass(match.status)">
+	<div *ngFor="let match of matches$ | async | orderBy:'id'" id="match{{match.id}}"
+		 [ngClass]="matchStatusClass(match.status)">
 		<mat-card>
 			<mat-card-content>
 				<div fxLayout="row">
@@ -9,7 +11,9 @@
 							<div class="mat-caption">Match #</div>
 							<div class="mat-display-2">{{match.id | number:'2.0-0'}}</div>
 							<div class="mat-body-2">{{match.time | amDateFormat: 'hh:mm A'}}</div>
-							<div class="mat-caption">{{(isMatchPlaying(match) ? "playing now" : match.time | amTimeAgo)}}</div>
+							<div class="mat-caption">{{(isMatchPlaying(match) ? "playing now" : match.time |
+								amTimeAgo)}}
+							</div>
 						</div>
 					</div>
 					<div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="6%" fxLayoutGap.gt-md="10%" fxFlex>

@@ -1,35 +1,34 @@
-import {NgModule, Optional, SkipSelf} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 
-import {RouterModule} from '@angular/router'
-import {HttpClientModule} from "@angular/common/http";
-import {CoreRoutingModule} from "./core-routing.module";
-import {SharedModule} from "../shared/shared.module";
-import {LoginComponent} from "./components/login/login.component";
-import {NotFoundComponent} from './components/not-found/not-found.component';
-import {SidebarComponent} from './components/sidebar/sidebar.component';
-import {AuthGuard} from "./guards/auth.guard";
-import {throwIfAlreadyLoaded} from "./guards/module-import.guard";
-import {TitleComponent} from './components/title/title.component';
-import {HomeComponent} from './components/home/home.component';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { TitleComponent } from './components/title/title.component';
+import { CoreRoutingModule } from './core-routing.module';
+import { throwIfAlreadyLoaded } from './guards/module-import.guard';
 
 
-@NgModule({
+@NgModule( {
 	imports: [
 		CommonModule,
 		CoreRoutingModule,
 		SharedModule,
 		HttpClientModule
 	],
-	declarations: [LoginComponent, NotFoundComponent, SidebarComponent, TitleComponent, HomeComponent],
+	declarations: [ LoginComponent, NotFoundComponent, SidebarComponent, TitleComponent, HomeComponent ],
 	exports: [
 		RouterModule,
 		SidebarComponent,
 		TitleComponent
 	]
-})
+} )
 export class CoreModule {
-	constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
-		throwIfAlreadyLoaded(parentModule, 'CoreModule');
+	constructor( @Optional() @SkipSelf() parentModule: CoreModule ) {
+		throwIfAlreadyLoaded( parentModule, 'CoreModule' );
 	}
 }

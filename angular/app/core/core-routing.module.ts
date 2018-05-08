@@ -1,9 +1,8 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {NotFoundComponent} from './components/not-found/not-found.component';
-import {AuthGuard} from './guards/auth.guard';
-import {LoginComponent} from './components/login/login.component';
-import {HomeComponent} from "./components/home/home.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
 	{
@@ -39,9 +38,9 @@ const routes: Routes = [
 	}
 ];
 
-@NgModule({
-	imports: [RouterModule.forRoot(routes)],
-	exports: [RouterModule]
-})
+@NgModule( {
+	imports: [ RouterModule.forRoot( routes ) ],
+	exports: [ RouterModule ]
+} )
 export class CoreRoutingModule {
 }
