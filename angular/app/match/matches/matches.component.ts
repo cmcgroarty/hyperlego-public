@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { AfterViewInit, Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { PageScrollInstance, PageScrollService } from 'ngx-page-scroll';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -11,9 +11,10 @@ import { Score } from '../../shared/model/score.model';
 import { Table } from '../../shared/model/table.model';
 
 @Component( {
-	selector: 'app-matches',
+	selector: 'hyper-matches',
 	templateUrl: './matches.component.html',
-	styleUrls: [ './matches.component.scss' ]
+	styleUrls: [ './matches.component.scss' ],
+	encapsulation: ViewEncapsulation.None
 } )
 export class MatchesComponent implements OnInit, OnDestroy, AfterViewInit {
 
@@ -27,13 +28,12 @@ export class MatchesComponent implements OnInit, OnDestroy, AfterViewInit {
 
 	ngOnInit() {
 		this.layout.setTitle( 'Schedule' );
-		this.matches$ = this.service.getAllMatches();
-		this.matches$.pipe( takeUntil( this.unsubscribe$ ) )
-			.subscribe( matches => {
-				this.playing = matches.find( match => {
-					return match.status === MatchStatus.PLAYING;
-				} );
+		this.matches$ = this.service.getAllMatches().pipe( takeUntil( this.unsubscribe$ ) );
+		this.matches$.subscribe( matches => {
+			this.playing = matches.find( match => {
+				return match.status === MatchStatus.PLAYING;
 			} );
+		} );
 	}
 
 	ngOnDestroy() {
@@ -43,9 +43,9 @@ export class MatchesComponent implements OnInit, OnDestroy, AfterViewInit {
 
 	ngAfterViewInit() {
 		if ( this.playing !== undefined ) {
-			let pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance( {
+			const pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance( {
 				document: this.document,
-				pageScrollOffset: 66,
+				pageScrollOffset: 0,
 				scrollTarget: '#match' + this.playing.id,
 				verticalScrolling: true
 			} );

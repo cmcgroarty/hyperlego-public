@@ -2,10 +2,26 @@
 
 .played {
 	mat-card, .mat-card {
-		background: mat-color($mat-gray, 500);;
+		background: mat-color($mat-gray, 400);
 	}
 }
 
 .mat-display-4, .mat-display-3, .mat-display-2, .mat-display-1, .mat-title, .mat-subheading-1 {
 	margin-bottom: 0;
+}
+
+.matches-container {
+	padding: 2px;
+}
+
+.anchor {
+	display: block;
+	position: relative;
+	visibility: hidden;
+	.handset & {
+		top: -58px;
+	}
+	.desktop & {
+		top: -66px;
+	}
 }
