@@ -1,9 +1,10 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
 import { Score } from '../../shared/model/score.model';
 
 @Component( {
-	selector: 'score-list',
+	selector: 'hyper-score-list',
 	templateUrl: './score-list.component.html',
 	styleUrls: [ './score-list.component.scss' ],
 	animations: [
@@ -20,9 +21,7 @@ import { Score } from '../../shared/model/score.model';
 	],
 } )
 export class ScoreListComponent implements OnInit {
-
-	@Input() filter: string;
-	@Input() scores: Score[];
+	@Input() scores: Observable<Score[]>;
 
 	constructor() {
 	}

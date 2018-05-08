@@ -7,4 +7,5 @@ export interface Score {
 	team?: Team;
 	match?: Match;
 	table?: Table;
+	total_score?: number;
 }
