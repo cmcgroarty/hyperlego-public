@@ -1,4 +1,4 @@
-import { ElementRef, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Injectable( {
@@ -11,26 +11,6 @@ export class LayoutService {
 	constructor( private titleService: Title ) {
 		this.title = '';
 		this.globalTitle = 'HYPER Lego | powered by iDesign Consulting';
-	}
-
-	private _sidenav: ElementRef;
-
-	get sidenav(): ElementRef {
-		return this._sidenav;
-	}
-
-	set sidenav( value: ElementRef ) {
-		this._sidenav = value;
-	}
-
-	private _sidenavContainer: ElementRef;
-
-	get sidenavContainer(): ElementRef {
-		return this._sidenavContainer;
-	}
-
-	set sidenavContainer( value: ElementRef ) {
-		this._sidenavContainer = value;
 	}
 
 	appTitle(): string {
