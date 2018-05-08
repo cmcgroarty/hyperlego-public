@@ -1,19 +1,40 @@
-<img [src]="LOGO" style="max-width: 60%;"/>
-<mat-nav-list>
-	<mat-list-item routerLink="/" (click)="closeSidenav.emit(true)">
-		<mat-icon matListIcon>home</mat-icon>
-		<span class="mat-title" matLine>Home</span>
-	</mat-list-item>
-	<mat-list-item routerLink="/team" (click)="closeSidenav.emit(true)">
-		<mat-icon matListIcon>group</mat-icon>
-		<span class="mat-title" matLine>Teams</span>
-	</mat-list-item>
-	<mat-list-item routerLink="/match" (click)="closeSidenav.emit(true)">
-		<mat-icon matListIcon>view_agenda</mat-icon>
-		<span class="mat-title" matLine>Schedule</span>
-	</mat-list-item>
-	<mat-list-item routerLink="/score" (click)="closeSidenav.emit(true)">
-		<mat-icon matListIcon>subtitles</mat-icon>
-		<span class="mat-title" matLine>Scores</span>
-	</mat-list-item>
-</mat-nav-list>
+<mat-sidenav-container [ngClass]="isHandset ? 'handset' : 'desktop'">
+	<mat-sidenav #sidenav
+				 fixedInViewport="true"
+				 [attr.role]="isHandset ? 'dialog' : 'navigation'"
+				 [mode]="isHandset ? 'over' : 'side'"
+				 [opened]="!isHandset">
+		<div fxLayout="column" fxLayoutAlign="center center">
+			<img [src]="LOGO" style="max-width: 80%;"/>
+		</div>
+		<mat-nav-list>
+			<mat-list-item routerLink="/" (click)="close()">
+				<mat-icon matListIcon>home</mat-icon>
+				<span class="mat-title" matLine>Home</span>
+			</mat-list-item>
+			<mat-list-item routerLink="/team" (click)="close()">
+				<mat-icon matListIcon>group</mat-icon>
+				<span class="mat-title" matLine>Teams</span>
+			</mat-list-item>
+			<mat-list-item routerLink="/match" (click)="close()">
+				<mat-icon matListIcon>view_agenda</mat-icon>
+				<span class="mat-title" matLine>Schedule</span>
+			</mat-list-item>
+			<mat-list-item routerLink="/score" (click)="close()">
+				<mat-icon matListIcon>subtitles</mat-icon>
+				<span class="mat-title" matLine>Scores</span>
+			</mat-list-item>
+		</mat-nav-list>
+	</mat-sidenav>
+	<mat-sidenav-content #sidenavContent role="main">
+		<mat-toolbar color="primary">
+			<button mat-icon-button (click)="sidenav.toggle()" *ngIf="isHandset">
+				<mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+			</button>
+			<app-title></app-title>
+		</mat-toolbar>
+		<div class="container">
+			<ng-content></ng-content>
+		</div>
+	</mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,1 +1,40 @@
+@import '~@angular/material/theming';
 
+mat-sidenav, .mat-sidenav {
+	background: mat-color($mat-gray, 300) !important;
+	box-shadow: 3px 0 6px rgba(0, 0, 0, .24);
+	.handset &{
+		width: 320px;
+		max-width: 90vw;
+	}
+	.desktop &{
+		min-width: 400px;
+		max-width: 400px;
+	}
+}
+
+mat-sidenav-container, mat-sidenav-content {
+	min-height: 100vh;
+}
+
+mat-sidenav-content {
+	max-width: 100vw;
+}
+
+mat-toolbar {
+	button:first-child {
+		margin-left: -8px;
+		margin-right: 6px;
+	}
+	position: fixed;
+	z-index: 9999;
+}
+
+.container {
+	.handset & {
+		margin-top: 56px;
+	}
+	.desktop & {
+		margin-top: 64px;
+	}
+}
