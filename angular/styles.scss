@@ -19,9 +19,11 @@
 			}
 		}
 	}
-	.teamInfo {
-		span {
+	.team-info {
+		min-width: 0;
+		div {
 			@include mat-truncate-line();
+			width: 100%;
 		}
 
 		.mat-subheading-2 {
