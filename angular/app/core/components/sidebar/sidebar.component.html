@@ -1,4 +1,4 @@
-<mat-sidenav-container [ngClass]="isHandset ? 'handset' : 'desktop'">
+<mat-sidenav-container [ngClass]="isHandset ? 'handset' : 'desktop'" #sidenavContainer>
 	<mat-sidenav #sidenav
 				 fixedInViewport="true"
 				 [attr.role]="isHandset ? 'dialog' : 'navigation'"
@@ -28,10 +28,15 @@
 	</mat-sidenav>
 	<mat-sidenav-content #sidenavContent role="main">
 		<mat-toolbar color="primary">
-			<button mat-icon-button (click)="sidenav.toggle()" *ngIf="isHandset">
+			<button mat-icon-button (click)="sidenav.toggle()" *ngIf="isHandset && !backButton()">
 				<mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
 			</button>
-			<app-title></app-title>
+			<button mat-icon-button (click)="back()" *ngIf="backButton()">
+				<mat-icon>arrow_back</mat-icon>
+			</button>
+				<div>HYPER Lego</div>
+				<div [hidden]="appTitle().length === 0"><mat-icon>chevron_right</mat-icon></div>
+				<div [hidden]="appTitle().length === 0">{{ appTitle() }}</div>
 		</mat-toolbar>
 		<div class="container">
 			<ng-content></ng-content>

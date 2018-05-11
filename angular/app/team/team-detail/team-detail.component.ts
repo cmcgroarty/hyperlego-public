@@ -21,6 +21,7 @@ export class TeamDetailComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
+		this.layout.backButton = true;
 		this.team$ = this.route.paramMap.pipe( switchMap( ( params: ParamMap ) => {
 			return this.service.getTeam( +params.get( 'id' ) );
 		} ) );
