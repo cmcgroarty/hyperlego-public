@@ -8,6 +8,8 @@
 module.exports = {
 	primaryKey: 'id',
 	attributes: {
+		createdAt: false,
+		updatedAt: false,
 
 		//  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
 		//  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
