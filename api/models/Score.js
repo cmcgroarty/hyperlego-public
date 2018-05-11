@@ -4,7 +4,6 @@
  * @description :: A model definition.  Represents a database table/collection/etc.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
  */
-const Table = ['1A', '1B', '2A', '2B'];
 module.exports = {
 	primaryKey: 'id',
 	attributes: {
@@ -14,14 +13,14 @@ module.exports = {
 		//  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 		id: {
 			type: 'number',
-			required: true,
 			unique: true,
 			isInteger: true,
+			autoIncrement: true,
 			min: 0
 		},
 		table_name: {
 			type: 'string',
-			isIn: Table,
+			isIn: ['ONE_A', 'ONE_B', 'TWO_A', 'TWO_B'],
 			required: true
 		},
 		total_score: {

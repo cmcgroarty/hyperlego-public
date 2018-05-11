@@ -6,6 +6,6 @@ export interface Score {
 	id?: number;
 	team?: Team;
 	match?: Match;
-	table?: Table;
+	table_name?: Table;
 	total_score?: number;
 }
