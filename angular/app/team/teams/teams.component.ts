@@ -7,7 +7,7 @@ import { Division } from '../../shared/model/division.model';
 import { Team } from '../../shared/model/team.model';
 
 @Component( {
-	selector: 'app-teams',
+	selector: 'hyper-teams',
 	templateUrl: './teams.component.html',
 	styleUrls: [ './teams.component.scss' ]
 } )
@@ -16,7 +16,7 @@ export class TeamsComponent implements OnInit, OnDestroy {
 	teams$: Observable<Team[]>;
 	filteredTeams: Team[];
 	tabDivision: Division = undefined;
-	selectedTab: number = 0;
+	selectedTab = 0;
 	private unsubscribe$ = new Subject<void>();
 
 	constructor( private layout: LayoutService, private service: TeamService ) {

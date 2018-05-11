@@ -1,11 +1,12 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { Division } from '../../shared/model/division.model';
 import { Team } from '../../shared/model/team.model';
 import { ByDivisionPipe } from '../../shared/pipes/by-division.pipe';
 
 @Component( {
-	selector: 'team-list',
+	selector: 'hyper-team-list',
 	templateUrl: './team-list.component.html',
 	styleUrls: [ './team-list.component.scss' ],
 	encapsulation: ViewEncapsulation.None,
@@ -26,8 +27,10 @@ export class TeamListComponent implements OnInit {
 
 	@Input() division: Division;
 	@Input() teams: Team[];
+	divisions = Division;
+	router = this._router;
 
-	constructor( private byDivisionPipe: ByDivisionPipe ) {
+	constructor( private byDivisionPipe: ByDivisionPipe, private _router: Router ) {
 	}
 
 	ngOnInit() {

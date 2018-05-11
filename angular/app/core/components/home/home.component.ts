@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LayoutService } from '../../services/layout.service';
 
 @Component( {
-	selector: 'app-home',
+	selector: 'hyper-home',
 	templateUrl: './home.component.html',
 	styleUrls: [ './home.component.scss' ]
 } )
