@@ -47,7 +47,7 @@ module.exports.routes = {
 	/**
 	 *	SCORES
 	 */
-	'GET /api/score/not/null':'score/get-not-null',
+	'GET /api/score/not/null':'score/get-not-null-played',
 
 
 	//  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗

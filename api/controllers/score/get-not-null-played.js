@@ -10,7 +10,7 @@
  *
  * Get not null.
  */
-module.exports = async function getNotNull( req, res ) {
+module.exports = async function getNotNullPlayed( req, res ) {
 
 	try {
 		let nonNullScores = await Score.find( {
