@@ -7,10 +7,14 @@ import { Division } from '../model/division.model';
 export class ByDivisionPipe implements PipeTransform {
 
 	transform( items: any[], division: Division ): any[] {
-		if ( !items ) return [];
-		if ( !division ) return items;
+		if ( !items ) {
+			return [];
+		}
+		if ( !division ) {
+			return items;
+		}
 		return items.filter( item => {
-			return item.division === division;
+			return ( Division[ item.division ] === division ) || ( item.division === division );
 		} );
 	}
 

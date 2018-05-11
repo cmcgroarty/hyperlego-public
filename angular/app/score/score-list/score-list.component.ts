@@ -1,7 +1,9 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { Division } from '../../shared/model/division.model';
 import { Score } from '../../shared/model/score.model';
+import { Table } from '../../shared/model/table.model';
 
 @Component( {
 	selector: 'hyper-score-list',
@@ -22,6 +24,8 @@ import { Score } from '../../shared/model/score.model';
 } )
 export class ScoreListComponent implements OnInit {
 	@Input() scores: Observable<Score[]>;
+	divisions = Division;
+	table = Table;
 
 	constructor() {
 	}

@@ -24,7 +24,7 @@ export class ScoresComponent implements OnInit, OnDestroy {
 
 	ngOnInit(): void {
 		this.layout.setTitle( 'Scores' );
-		combineLatest( this.service.getAllScores(), this.tabFilter$ ).pipe( takeUntil( this.unsubscribe$ ) )
+		combineLatest( this.service.getNotNullScores(), this.tabFilter$ ).pipe( takeUntil( this.unsubscribe$ ) )
 			.subscribe( ( [ scores, tabFilter ] ) => {
 				this.filterTheScores( scores.filter( score => {
 					return score.match.status === MatchStatus.PLAYED;
@@ -42,17 +42,17 @@ export class ScoresComponent implements OnInit, OnDestroy {
 		switch ( tabFilter ) {
 			case 'Latest':
 				this.filterScores$.next( scores.sort( ( a: Score, b: Score ) => {
-					return b.id - a.id;
+					return b.match.id - a.match.id;
 				} ).slice( 0, 4 ) );
 				break;
 			case 'JA':
 				this.filterScores$.next( scores.filter( score => {
-					return score.team.division === Division.JA;
+					return Division[score.team.division] === Division.JA;
 				} ) );
 				break;
 			case 'JQA':
 				this.filterScores$.next( scores.filter( score => {
-					return score.team.division === Division.JQA;
+					return Division[score.team.division] === Division.JQA;
 				} ) );
 				break;
 			default:

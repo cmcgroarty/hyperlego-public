@@ -20,21 +20,29 @@
 					<div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="6%" fxLayoutGap.gt-md="10%" fxFlex>
 						<div fxLayout="column" fxLayoutAlign="center center">
 							<div class="mat-body-1">Table 1.A</div>
-							<div class="mat-title">#01</div>
+							<div class="mat-title">#{{getScoreByTable(match.scores, table.ONE_A)?.team |
+								number:'2.0-0'}}
+							</div>
 						</div>
 						<div fxLayout="column" fxLayoutAlign="center center">
 							<div class="mat-body-1">Table 1.B</div>
-							<div class="mat-title">#02</div>
+							<div class="mat-title">#{{getScoreByTable(match.scores, table.ONE_B)?.team |
+								number:'2.0-0'}}
+							</div>
 						</div>
 					</div>
 					<div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="6%" fxLayoutGap.gt-md="10%" fxFlex>
 						<div fxLayout="column" fxLayoutAlign="center center">
 							<div class="mat-body-1">Table 2.A</div>
-							<div class="mat-title">#03</div>
+							<div class="mat-title">#{{getScoreByTable(match.scores, table.TWO_A)?.team |
+								number:'2.0-0'}}
+							</div>
 						</div>
 						<div fxLayout="column" fxLayoutAlign="center center">
 							<div class="mat-body-1">Table 2.B</div>
-							<div class="mat-title">#04</div>
+							<div class="mat-title">#{{getScoreByTable(match.scores, table.TWO_B)?.team |
+								number:'2.0-0'}}
+							</div>
 						</div>
 					</div>
 				</div>
@@ -42,7 +50,7 @@
 		</mat-card>
 	</div>
 
-	<mat-list *ngIf="(matches$ | async).length < 1">
+	<mat-list *ngIf="(matches$ | async)?.length < 1">
 		<mat-list-item><span class="mat-subheading-2">No Schedule to Display</span></mat-list-item>
 	</mat-list>
 
