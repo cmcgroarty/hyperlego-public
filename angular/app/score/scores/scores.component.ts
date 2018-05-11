@@ -26,9 +26,7 @@ export class ScoresComponent implements OnInit, OnDestroy {
 		this.layout.setTitle( 'Scores' );
 		combineLatest( this.service.getNotNullScores(), this.tabFilter$ ).pipe( takeUntil( this.unsubscribe$ ) )
 			.subscribe( ( [ scores, tabFilter ] ) => {
-				this.filterTheScores( scores.filter( score => {
-					return score.match.status === MatchStatus.PLAYED;
-				} ), tabFilter );
+				this.filterTheScores( scores, tabFilter );
 			} );
 		setTimeout( () => this.tabFilter$.next( 'Latest' ), 0 );
 	}
