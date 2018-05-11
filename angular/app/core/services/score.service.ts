@@ -13,12 +13,19 @@ export class ScoreService {
 	}
 
 	getAllScores(): Observable<Score[]> {
-		//return this.http.get<Score[]>('');
-		return of( SCORES );
+		return this.http.get<Score[]>( 'http://d.idesignconsulting.com:1337/score/', {
+			params: {
+				limit: '100'
+			}
+		} );
+		// return of( SCORES );
+	}
+	getNotNullScores(): Observable<Score[]> {
+		return this.http.get<Score[]>( 'http://d.idesignconsulting.com:1337/api/score/not/null');
 	}
 
 	getScore( id: number ): Observable<Score> {
-		//return this.http.get<Score>(''+id);
+		// return this.http.get<Score>(''+id);
 		return of( SCORES.find( score => {
 			return score.id === id;
 		} ) );

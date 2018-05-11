@@ -13,12 +13,12 @@ export class MatchService {
 	}
 
 	getAllMatches(): Observable<Match[]> {
-		//return this.http.get<Match[]>('');
-		return of( MATCHES );
+		return this.http.get<Match[]>('http://d.idesignconsulting.com:1337/match');
+		// return of( MATCHES );
 	}
 
 	getMatch( id: number ): Observable<Match> {
-		//retutn this.http.get<Match>('' + id);
+		// retutn this.http.get<Match>('' + id);
 		return of( MATCHES.find( match => {
 			return match.id === id;
 		} ) );

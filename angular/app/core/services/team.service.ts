@@ -13,15 +13,17 @@ export class TeamService {
 	}
 
 	getAllTeams(): Observable<Team[]> {
-		//return this.http.get<Team[]>('');
-		return of( TEAMS );
+		return this.http.get<Team[]>('http://d.idesignconsulting.com:1337/team');
+		// return of( TEAMS );
 	}
 
 	getTeam( id: number ): Observable<Team> {
-		//return this.http.get<Team>('' + id);
+		return this.http.get<Team>('http://d.idesignconsulting.com:1337/team/' + id);
+		/*
 		return of( TEAMS.find( team => {
 			return team.id === id;
 		} ) );
+		*/
 	}
 
 	createTeam( team: Team ): Observable<Team> {
