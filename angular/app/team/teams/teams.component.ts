@@ -1,10 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { LayoutService } from '../../core/services/layout.service';
-import { TeamService } from '../../core/services/team.service';
+import { TeamStoreService } from '../../core/services/team-store.service';
 import { Division } from '../../shared/model/division.model';
-import { Team } from '../../shared/model/team.model';
 
 @Component( {
 	selector: 'hyper-teams',
@@ -13,18 +12,15 @@ import { Team } from '../../shared/model/team.model';
 } )
 export class TeamsComponent implements OnInit, OnDestroy {
 
-	teams$: Observable<Team[]>;
-	filteredTeams: Team[];
 	tabDivision: Division = undefined;
 	selectedTab = 0;
 	private unsubscribe$ = new Subject<void>();
 
-	constructor( private layout: LayoutService, private service: TeamService ) {
+	constructor( private layout: LayoutService, public todoStore: TeamStoreService ) {
 	}
 
 	ngOnInit() {
 		this.layout.setTitle( 'Teams' );
-		this.teams$ = this.service.getAllTeams();
 	}
 
 	ngOnDestroy() {

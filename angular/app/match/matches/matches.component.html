@@ -1,7 +1,7 @@
 <div class="matches-container" fxLayout="column" fxFlex.gt-sm="80" fxFlex.gt-md="60" fxFlex.gt-lg="40"
 	 fxLayoutGap="0.5%">
 
-	<div *ngFor="let match of matches$ | async | orderBy:'id'"
+	<div *ngFor="let match of matches | orderBy:'id'"
 		 [ngClass]="matchStatusClass(match.status)">
 		<a id="match{{match.id}}" class="anchor"></a>
 		<mat-card>
@@ -50,7 +50,7 @@
 		</mat-card>
 	</div>
 
-	<mat-list *ngIf="(matches$ | async)?.length < 1">
+	<mat-list *ngIf="matches?.length < 1">
 		<mat-list-item><span class="mat-subheading-2">No Schedule to Display</span></mat-list-item>
 	</mat-list>
 

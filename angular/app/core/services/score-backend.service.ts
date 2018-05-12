@@ -7,7 +7,7 @@ import { Score } from '../../shared/model/score.model';
 @Injectable( {
 	providedIn: 'root'
 } )
-export class ScoreService {
+export class ScoreBackendService {
 
 	constructor( private http: HttpClient ) {
 	}
@@ -20,8 +20,9 @@ export class ScoreService {
 		} );
 		// return of( SCORES );
 	}
+
 	getNotNullScores(): Observable<Score[]> {
-		return this.http.get<Score[]>( 'http://d.idesignconsulting.com:1337/api/score/not/null');
+		return this.http.get<Score[]>( 'http://d.idesignconsulting.com:1337/api/score/not/null' );
 	}
 
 	getScore( id: number ): Observable<Score> {

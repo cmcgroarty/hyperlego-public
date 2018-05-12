@@ -7,13 +7,13 @@ import { Match } from '../../shared/model/match.model';
 @Injectable( {
 	providedIn: 'root'
 } )
-export class MatchService {
+export class MatchBackendService {
 
 	constructor( private http: HttpClient ) {
 	}
 
 	getAllMatches(): Observable<Match[]> {
-		return this.http.get<Match[]>('http://d.idesignconsulting.com:1337/match');
+		return this.http.get<Match[]>( 'http://d.idesignconsulting.com:1337/match' );
 		// return of( MATCHES );
 	}
 

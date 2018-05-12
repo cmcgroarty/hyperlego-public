@@ -1,10 +1,10 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { PageScrollInstance, PageScrollService } from 'ngx-page-scroll';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { LayoutService } from '../../core/services/layout.service';
-import { MatchService } from '../../core/services/match.service';
+import { MatchStoreService } from '../../core/services/match-store.service';
 import { MatchStatus } from '../../shared/model/match-status.model';
 import { Match } from '../../shared/model/match.model';
 import { Score } from '../../shared/model/score.model';
@@ -18,15 +18,15 @@ import { Table } from '../../shared/model/table.model';
 } )
 export class MatchesComponent implements OnInit, OnDestroy {
 
-	matches$: Observable<Match[]>;
 	playing: Match;
 	table = Table;
+	matches: Match[];
 	private initialMatchesLoaded = false;
 	private unsubscribe$ = new Subject<void>();
 
 	constructor(
 		private layout: LayoutService,
-		private service: MatchService,
+		private matchStore: MatchStoreService,
 		private scroll: PageScrollService,
 		@Inject( DOCUMENT ) private document: any
 	) {
@@ -34,15 +34,16 @@ export class MatchesComponent implements OnInit, OnDestroy {
 
 	ngOnInit() {
 		this.layout.setTitle( 'Schedule' );
-		this.matches$ = this.service.getAllMatches().pipe( takeUntil( this.unsubscribe$ ) );
-		this.matches$.subscribe( matches => {
-			if ( !this.initialMatchesLoaded ) {
-				this.playing = matches.find( match => {
-					return match.status === MatchStatus.PLAYING;
-				} );
-				setTimeout( () => this.scrollToPlaying(), 500);
-			}
-		} );
+		this.matchStore.matches$.pipe( takeUntil( this.unsubscribe$ ) )
+			.subscribe( matches => {
+				this.matches = matches;
+				if ( !this.initialMatchesLoaded ) {
+					this.playing = matches.find( match => {
+						return match.status === MatchStatus.PLAYING;
+					} );
+					setTimeout( () => this.scrollToPlaying(), 500 );
+				}
+			} );
 	}
 
 	ngOnDestroy() {

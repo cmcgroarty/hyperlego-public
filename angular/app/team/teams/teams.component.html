@@ -3,5 +3,5 @@
 	<mat-tab label="JA"></mat-tab>
 	<mat-tab label="JQA"></mat-tab>
 </mat-tab-group>
-<hyper-team-list [division]="tabDivision" [teams]="teams$ | async"></hyper-team-list>
+<hyper-team-list [division]="tabDivision" [teams]="todoStore.teams$ | async"></hyper-team-list>
 

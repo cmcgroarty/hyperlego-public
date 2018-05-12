@@ -3,7 +3,8 @@ import { MatTabChangeEvent } from '@angular/material';
 import { combineLatest, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { LayoutService } from '../../core/services/layout.service';
-import { ScoreService } from '../../core/services/score.service';
+import { ScoreBackendService } from '../../core/services/score-backend.service';
+import { ScoreStoreService } from '../../core/services/score-store.service';
 import { Division } from '../../shared/model/division.model';
 import { MatchStatus } from '../../shared/model/match-status.model';
 import { Score } from '../../shared/model/score.model';
@@ -19,12 +20,12 @@ export class ScoresComponent implements OnInit, OnDestroy {
 	private tabFilter$ = new Subject<string>();
 	private unsubscribe$ = new Subject<void>();
 
-	constructor( private layout: LayoutService, private service: ScoreService ) {
+	constructor( private layout: LayoutService, private scoreStore: ScoreStoreService ) {
 	}
 
 	ngOnInit(): void {
 		this.layout.setTitle( 'Scores' );
-		combineLatest( this.service.getNotNullScores(), this.tabFilter$ ).pipe( takeUntil( this.unsubscribe$ ) )
+		combineLatest( this.scoreStore.scores$, this.tabFilter$ ).pipe( takeUntil( this.unsubscribe$ ) )
 			.subscribe( ( [ scores, tabFilter ] ) => {
 				this.filterTheScores( scores, tabFilter );
 			} );
