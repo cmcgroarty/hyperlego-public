@@ -1,0 +1,7 @@
+<mat-nav-list>
+	<mat-list-item *ngFor="let nav of navs | orderBy:'order' " [routerLink]="nav.route"
+				   (click)="closeSidenav.emit(true)">
+		<mat-icon matListIcon>{{nav.icon}}</mat-icon>
+		<span class="mat-title" matLine>{{nav.title}}</span>
+	</mat-list-item>
+</mat-nav-list>

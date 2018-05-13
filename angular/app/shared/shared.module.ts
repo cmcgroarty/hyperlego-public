@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { DragScrollModule } from 'ngx-drag-scroll';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material';
 import { MomentModule } from 'ngx-moment';
 
 import { OrderModule } from 'ngx-order-pipe';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
 import { MaterialModule } from './material/material.module';
 import { ByDivisionPipe } from './pipes/by-division.pipe';
+import { TimerColorPipe } from './pipes/timer-color.pipe';
 
 @NgModule( {
 	imports: [
@@ -14,8 +15,7 @@ import { ByDivisionPipe } from './pipes/by-division.pipe';
 		FlexLayoutModule,
 		OrderModule,
 		MomentModule,
-		NgxPageScrollModule,
-		DragScrollModule
+		NgxPageScrollModule
 	],
 	exports: [
 		MaterialModule,
@@ -23,11 +23,11 @@ import { ByDivisionPipe } from './pipes/by-division.pipe';
 		OrderModule,
 		MomentModule,
 		NgxPageScrollModule,
-		DragScrollModule,
-		ByDivisionPipe
+		ByDivisionPipe,
+		TimerColorPipe
 	],
-	declarations: [ ByDivisionPipe ],
-	providers: [ ByDivisionPipe ],
+	declarations: [ ByDivisionPipe, TimerColorPipe ],
+	providers: [ ByDivisionPipe, TimerColorPipe]
 } )
 export class SharedModule {
 }

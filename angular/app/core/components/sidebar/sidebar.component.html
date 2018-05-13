@@ -1,34 +1,17 @@
-<mat-sidenav-container [ngClass]="isHandset ? 'handset' : 'desktop'" #sidenavContainer>
+<mat-sidenav-container [ngClass]="isHandset ? 'handset' : 'desktop'">
 	<mat-sidenav #sidenav
 				 fixedInViewport="true"
 				 [attr.role]="isHandset ? 'dialog' : 'navigation'"
-				 [mode]="isHandset ? 'over' : 'side'"
-				 [opened]="!isHandset">
+				 [mode]="isHandset || layoutService.forceSidenavClose ? 'over' : 'side'"
+				 [opened]="!isHandset && !layoutService.forceSidenavClose">
 		<div fxLayout="column" fxLayoutAlign="center center">
 			<img [src]="LOGO" style="max-width: 80%;"/>
 		</div>
-		<mat-nav-list>
-			<mat-list-item routerLink="/" (click)="close()">
-				<mat-icon matListIcon>home</mat-icon>
-				<span class="mat-title" matLine>Home</span>
-			</mat-list-item>
-			<mat-list-item routerLink="/team" (click)="close()">
-				<mat-icon matListIcon>group</mat-icon>
-				<span class="mat-title" matLine>Teams</span>
-			</mat-list-item>
-			<mat-list-item routerLink="/match" (click)="close()">
-				<mat-icon matListIcon>view_agenda</mat-icon>
-				<span class="mat-title" matLine>Schedule</span>
-			</mat-list-item>
-			<mat-list-item routerLink="/score" (click)="close()">
-				<mat-icon matListIcon>subtitles</mat-icon>
-				<span class="mat-title" matLine>Scores</span>
-			</mat-list-item>
-		</mat-nav-list>
+		<hyper-nav-list [navs]="layoutService.nav" (closeSidenav)="close()"></hyper-nav-list>
 	</mat-sidenav>
-	<mat-sidenav-content #sidenavContent role="main">
-		<mat-toolbar color="primary">
-			<button mat-icon-button (click)="sidenav.toggle()" *ngIf="isHandset && !backButton()">
+	<mat-sidenav-content role="main" fxLayout="column">
+		<mat-toolbar color="primary" fxFlex="noshrink" [hidden]="layoutService.hideToolbar">
+			<button mat-icon-button (click)="sidenav.toggle()" *ngIf="(isHandset || layoutService.forceSidenavClose) && !backButton()">
 				<mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
 			</button>
 			<button mat-icon-button (click)="back()" *ngIf="backButton()">
@@ -38,7 +21,7 @@
 				<div [hidden]="appTitle().length === 0"><mat-icon>chevron_right</mat-icon></div>
 				<div [hidden]="appTitle().length === 0">{{ appTitle() }}</div>
 		</mat-toolbar>
-		<div class="container">
+		<div #scrollContainer class="container fullpage">
 			<ng-content></ng-content>
 		</div>
 	</mat-sidenav-content>

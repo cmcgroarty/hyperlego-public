@@ -10,7 +10,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://www.google.com/design/spec/style/color.html
 $hyper-app-primary: mat-palette($mat-blue, 800);
-$hyper-app-accent: mat-palette($mat-orange);
+$hyper-app-accent: mat-palette($mat-deep-orange);
 
 // The warn palette is optional (defaults to red).
 $hyper-app-warn: mat-palette($mat-red);

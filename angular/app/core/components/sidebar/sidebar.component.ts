@@ -2,9 +2,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Location } from '@angular/common';
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material';
-import { NavigationStart, Router } from '@angular/router';
 import { Subject } from 'rxjs/index';
-import { filter, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { LayoutService } from '../../services/layout.service';
 
 @Component( {
@@ -14,29 +13,20 @@ import { LayoutService } from '../../services/layout.service';
 } )
 export class SidebarComponent implements OnInit, OnDestroy {
 
-	LOGO = require( './Logo_2015.svg' );
+	LOGO = require( '../../../../../assets/images/Logo_2015.svg' );
 	isHandset: boolean;
-	@ViewChild('sidenavContainer') private sidenavContainer: ElementRef;
-	@ViewChild('sidenavContent') private sidenavContent: ElementRef;
 	@ViewChild( 'sidenav' ) sidenav: MatSidenav;
+	@ViewChild( 'scrollContainer' ) private scrollContainer: ElementRef;
 	private unsubscribe$ = new Subject<void>();
 
 
 	constructor(
 		private breakpointObserver: BreakpointObserver,
-		private layoutService: LayoutService,
-		private location: Location,
-		private router: Router
-	) {
-		router.events.pipe( filter( event => event instanceof NavigationStart ) )
-			.subscribe( ( event: NavigationStart ) => {
-				this.layoutService.backButton = false;
-			} );
-	}
-
+		public layoutService: LayoutService,
+		private location: Location
+	) {}
 	ngOnInit() {
-		this.layoutService.sidenavContainer = this.sidenavContainer;
-		this.layoutService.sidenavContent = this.sidenavContent;
+		this.layoutService.scrollContainer = this.scrollContainer;
 		this.breakpointObserver.observe( [
 			Breakpoints.Handset,
 			Breakpoints.TabletPortrait,
@@ -65,6 +55,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
 	back(): void {
 		this.location.back();
 	}
+
 	appTitle(): string {
 		return this.layoutService.appTitle();
 	}

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { SCORES } from '../../shared/mocks/scores.mock';
-import { Score } from '../../shared/model/score.model';
+import { SCORES } from '../../../shared/mocks/scores.mock';
+import { Score } from '../../../shared/model/score.model';
 
 @Injectable( {
 	providedIn: 'root'

@@ -3,16 +3,19 @@
 .played {
 	mat-card, .mat-card {
 		background: mat-color($mat-gray, 400);
-		color: mat-color($mat-gray, 700);
+		color: mat-color($mat-gray, 800);
 	}
 }
 
 .mat-display-4, .mat-display-3, .mat-display-2, .mat-display-1, .mat-title, .mat-subheading-1 {
 	margin-bottom: 0;
 }
+.mat-title {
+	line-height:20px;
+}
 
 .matches-container {
-	padding: 2px;
+	padding: 0.5rem;
 }
 
 .anchor {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { Match } from '../../shared/model/match.model';
-import { MatchBackendService } from './match-backend.service';
+import { Match } from '../../../shared/model/match.model';
+import { MatchBackendService } from '../backend/match-backend.service';
 
 @Injectable( {
 	providedIn: 'root'

@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material';
 import { Subject } from 'rxjs';
 import { LayoutService } from '../../core/services/layout.service';
-import { TeamStoreService } from '../../core/services/team-store.service';
+import { TeamStoreService } from '../../core/services/store/team-store.service';
 import { Division } from '../../shared/model/division.model';
 
 @Component( {

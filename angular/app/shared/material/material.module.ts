@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import {
+	MAT_SNACK_BAR_DEFAULT_OPTIONS,
 	MatButtonModule,
 	MatCardModule,
 	MatIconModule,
@@ -34,7 +35,11 @@ import {
 		MatSnackBarModule,
 		MatTabsModule,
 		MatListModule
-	]
+	],
+	providers: [ {
+		provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+		useValue: { duration: 2500, horizontalPosition: 'start', verticalPosition: 'bottom' }
+	} ]
 } )
 export class MaterialModule {
 }

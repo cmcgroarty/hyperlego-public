@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { MATCHES } from '../../shared/mocks/matches.mock';
-import { Match } from '../../shared/model/match.model';
+import { MATCHES } from '../../../shared/mocks/matches.mock';
+import { Match } from '../../../shared/model/match.model';
 
 @Injectable( {
 	providedIn: 'root'

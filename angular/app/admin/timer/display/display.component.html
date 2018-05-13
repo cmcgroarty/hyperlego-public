@@ -1,0 +1,15 @@
+<div class="fullpage timer-container">
+	<mat-toolbar class="current-match">
+		<span>Match #</span>
+		<span fxFlex></span>
+		<span [ngSwitch]="sailsSocketService.subscribed">
+			<mat-icon *ngSwitchCase="true">check_circle</mat-icon>
+			<mat-icon *ngSwitchCase="false">remove_circle</mat-icon>
+		</span>
+	</mat-toolbar>
+	<div fxFlex="grow"></div>
+	<div fxFlex="nogrow" fxLayout="row" fxLayoutAlign="center center">
+		<div class="timer-text mat-display-4" [ngStyle]="{'color': timer | timerColor}">{{timer?.time * 1000 | date:'mm:ss'}}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,23 @@
+<div class="fullpage timer-container">
+	<mat-toolbar class="current-match">
+		<span>Match #</span>
+		<span fxFlex></span>
+		<span [ngSwitch]="sailsSocketService.subscribed">
+			<mat-icon *ngSwitchCase="true">check_circle</mat-icon>
+			<mat-icon *ngSwitchCase="false">remove_circle</mat-icon>
+		</span>
+	</mat-toolbar>
+	<div fxFlex="noshrink" fxLayout="row" fxLayoutAlign="center center">
+		<div class="timer-text mat-display-4" [ngStyle]="{'color': timer | timerColor}">{{timer?.time * 1000 |
+			date:'mm:ss'}}
+		</div>
+	</div>
+	<div fxLayout="row" fxLayoutAlign="center center" fxFlex>
+		<div fxFlex="90" fxFlex.gt-sm="80" fxFlex.gt-md="60" fxFlex.gt-lg="40" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1rem" class="hyper-dark-theme buttons">
+			<button mat-raised-button color="primary" fxFlexFill (click)="timerStoreService.startTimer()" *ngIf="timer.status === timerStatus.READY">Start</button>
+			<button mat-raised-button color="warn" fxFlexFill (click)="timerStoreService.stopTimer()" *ngIf="(timer.status === timerStatus.RUNNING) && (timer.time > 0)">Stop</button>
+			<button mat-raised-button color="accent" fxFlexFill (click)="timerStoreService.resetTimer()" *ngIf="(timer.status === timerStatus.STOPPED) || (timer.time === 0)">Reset</button>
+			<button mat-raised-button fxFlexFill (click)="false" *ngIf="(timer.status === timerStatus.RUNNING) && (timer.time === 0)">Next Unplayed Match</button>
+		</div>
+	</div>
+</div>

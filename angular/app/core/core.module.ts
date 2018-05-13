@@ -2,10 +2,12 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SailsModule, SailsService } from 'angular2-sails';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NavListComponent } from './components/sidebar/navlist/nav-list.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CoreRoutingModule } from './core-routing.module';
 import { throwIfAlreadyLoaded } from './guards/module-import.guard';
@@ -15,13 +17,15 @@ import { throwIfAlreadyLoaded } from './guards/module-import.guard';
 		CommonModule,
 		CoreRoutingModule,
 		SharedModule,
-		HttpClientModule
+		HttpClientModule,
+		SailsModule,
 	],
-	declarations: [ LoginComponent, NotFoundComponent, SidebarComponent, HomeComponent ],
+	declarations: [ LoginComponent, NotFoundComponent, SidebarComponent, HomeComponent, NavListComponent, ],
 	exports: [
 		RouterModule,
-		SidebarComponent
-	]
+		SidebarComponent,
+	],
+	providers: [ SailsService ]
 } )
 export class CoreModule {
 	constructor( @Optional() @SkipSelf() parentModule: CoreModule ) {

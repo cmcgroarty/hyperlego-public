@@ -3,11 +3,11 @@
 mat-sidenav, .mat-sidenav {
 	background: mat-color($mat-gray, 300) !important;
 	box-shadow: 3px 0 6px rgba(0, 0, 0, .24);
-	.handset &{
+	.handset & {
 		width: 320px;
 		max-width: 90vw;
 	}
-	.desktop &{
+	.desktop & {
 		min-width: 400px;
 		max-width: 400px;
 	}
@@ -15,6 +15,7 @@ mat-sidenav, .mat-sidenav {
 
 mat-sidenav-container, mat-sidenav-content {
 	min-height: 100vh;
+	max-height: 100vh;
 }
 
 mat-sidenav-content {
@@ -22,7 +23,6 @@ mat-sidenav-content {
 }
 
 mat-toolbar {
-	position: fixed;
 	z-index: 9999;
 
 	.handset & {
@@ -39,14 +39,9 @@ mat-toolbar {
 	:not(button) > mat-icon {
 		line-height: 40px;
 	}
-
 }
 
 .container {
-	.handset & {
-		margin-top: 56px;
-	}
-	.desktop & {
-		margin-top: 64px;
-	}
+	overflow: auto;
+	max-height: 100%;
 }

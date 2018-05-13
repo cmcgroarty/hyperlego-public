@@ -49,6 +49,14 @@ module.exports.routes = {
 	 */
 	'GET /api/score/not/null':'score/get-not-null-played',
 
+	/**
+	 *	TIMER
+	 */
+	'POST /api/timer/': 'timer/subscribe',
+	'POST /api/timer/control/start/': 'timer/start',
+	'POST /api/timer/control/stop/': 'timer/stop',
+	'POST /api/timer/control/reset/': 'timer/reset',
+
 
 	//  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
 	//  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗

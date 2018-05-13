@@ -1,5 +1,5 @@
 <div class="matches-container" fxLayout="column" fxFlex.gt-sm="80" fxFlex.gt-md="60" fxFlex.gt-lg="40"
-	 fxLayoutGap="0.5%">
+	 fxLayoutGap="1%">
 
 	<div *ngFor="let match of matches | orderBy:'id'"
 		 [ngClass]="matchStatusClass(match.status)">
@@ -20,13 +20,15 @@
 					<div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="6%" fxLayoutGap.gt-md="10%" fxFlex>
 						<div fxLayout="column" fxLayoutAlign="center center">
 							<div class="mat-body-1">Table 1.A</div>
-							<div class="mat-title">#{{getScoreByTable(match.scores, table.ONE_A)?.team |
+							<div class="mat-caption">Team #</div>
+							<div class="mat-title">{{getScoreByTable(match.scores, table.ONE_A)?.team |
 								number:'2.0-0'}}
 							</div>
 						</div>
 						<div fxLayout="column" fxLayoutAlign="center center">
 							<div class="mat-body-1">Table 1.B</div>
-							<div class="mat-title">#{{getScoreByTable(match.scores, table.ONE_B)?.team |
+							<div class="mat-caption">Team #</div>
+							<div class="mat-title">{{getScoreByTable(match.scores, table.ONE_B)?.team |
 								number:'2.0-0'}}
 							</div>
 						</div>
@@ -34,13 +36,15 @@
 					<div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="6%" fxLayoutGap.gt-md="10%" fxFlex>
 						<div fxLayout="column" fxLayoutAlign="center center">
 							<div class="mat-body-1">Table 2.A</div>
-							<div class="mat-title">#{{getScoreByTable(match.scores, table.TWO_A)?.team |
+							<div class="mat-caption">Team #</div>
+							<div class="mat-title">{{getScoreByTable(match.scores, table.TWO_A)?.team |
 								number:'2.0-0'}}
 							</div>
 						</div>
 						<div fxLayout="column" fxLayoutAlign="center center">
 							<div class="mat-body-1">Table 2.B</div>
-							<div class="mat-title">#{{getScoreByTable(match.scores, table.TWO_B)?.team |
+							<div class="mat-caption">Team #</div>
+							<div class="mat-title">{{getScoreByTable(match.scores, table.TWO_B)?.team |
 								number:'2.0-0'}}
 							</div>
 						</div>

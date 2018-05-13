@@ -4,7 +4,7 @@ import { PageScrollInstance, PageScrollService } from 'ngx-page-scroll';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { LayoutService } from '../../core/services/layout.service';
-import { MatchStoreService } from '../../core/services/match-store.service';
+import { MatchStoreService } from '../../core/services/store/match-store.service';
 import { MatchStatus } from '../../shared/model/match-status.model';
 import { Match } from '../../shared/model/match.model';
 import { Score } from '../../shared/model/score.model';
@@ -14,7 +14,6 @@ import { Table } from '../../shared/model/table.model';
 	selector: 'hyper-matches',
 	templateUrl: './matches.component.html',
 	styleUrls: [ './matches.component.scss' ],
-	encapsulation: ViewEncapsulation.None
 } )
 export class MatchesComponent implements OnInit, OnDestroy {
 

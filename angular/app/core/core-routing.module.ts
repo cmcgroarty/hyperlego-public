@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
 	{
@@ -13,13 +14,12 @@ const routes: Routes = [
 		path: 'login',
 		component: LoginComponent
 	},
-	/*
 	{
 		path: 'admin',
 		canActivate: [AuthGuard],
+		canActivateChild: [AuthGuard],
 		loadChildren: '../admin/admin.module#AdminModule'
 	},
-	*/
 	{
 		path: 'team',
 		loadChildren: '../team/team.module#TeamModule'

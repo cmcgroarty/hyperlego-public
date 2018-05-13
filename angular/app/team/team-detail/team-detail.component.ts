@@ -3,7 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { switchMap, takeUntil } from 'rxjs/operators';
 import { LayoutService } from '../../core/services/layout.service';
-import { TeamService } from '../../core/services/team.service';
+import { TeamBackendService } from '../../core/services/backend/team-backend.service';
 import { Team } from '../../shared/model/team.model';
 
 @Component( {
@@ -17,7 +17,7 @@ export class TeamDetailComponent implements OnInit, OnDestroy {
 	team: Team;
 	private unsubscribe$ = new Subject<void>();
 
-	constructor( private route: ActivatedRoute, private service: TeamService, private layout: LayoutService ) {
+	constructor( private route: ActivatedRoute, private service: TeamBackendService, private layout: LayoutService ) {
 	}
 
 	ngOnInit() {

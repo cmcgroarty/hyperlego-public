@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { Score } from '../../shared/model/score.model';
-import { ScoreBackendService } from './score-backend.service';
+import { Score } from '../../../shared/model/score.model';
+import { ScoreBackendService } from '../backend/score-backend.service';
 
 @Injectable( {
 	providedIn: 'root'
