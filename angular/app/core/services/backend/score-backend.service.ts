@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { SCORES } from '../../../shared/mocks/scores.mock';
+import { Observable } from 'rxjs';
 import { Score } from '../../../shared/model/score.model';
 
 @Injectable( {
@@ -18,7 +17,6 @@ export class ScoreBackendService {
 				limit: '100'
 			}
 		} );
-		// return of( SCORES );
 	}
 
 	getNotNullScores(): Observable<Score[]> {
@@ -26,10 +24,7 @@ export class ScoreBackendService {
 	}
 
 	getScore( id: number ): Observable<Score> {
-		// return this.http.get<Score>(''+id);
-		return of( SCORES.find( score => {
-			return score.id === id;
-		} ) );
+		return this.http.get<Score>( '' + id );
 	}
 
 	createScore( score: Score ): Observable<Score> {
