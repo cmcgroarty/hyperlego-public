@@ -13,6 +13,6 @@
 module.exports = async function stop(req, res) {
 
 	TimerService.stop();
-	return res.ok();
+	return res.json(TimerService.timer);
 
 };

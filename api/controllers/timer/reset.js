@@ -13,6 +13,6 @@
 module.exports = async function reset(req, res) {
 
 	TimerService.reset();
-	return res.ok();
+	return res.json(TimerService.timer);
 
 };

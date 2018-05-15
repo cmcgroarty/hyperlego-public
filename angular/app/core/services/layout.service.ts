@@ -69,6 +69,10 @@ export class LayoutService {
 		this._backButton = value;
 	}
 
+	isAdmin(): boolean {
+		return this.currentNav === NavType.ADMIN;
+	}
+
 	setNav( navtype: NavType ) {
 		this.currentNav = navtype;
 		switch ( this.currentNav ) {
@@ -104,28 +108,28 @@ export class LayoutService {
 			},
 			{
 				order: 10,
+				route: '/game',
+				title: 'This Year\'s Challenge',
+				icon: 'toys'
+			},
+			{
+				order: 20,
 				route: '/team',
 				title: 'Teams',
 				icon: 'group'
 			},
 			{
-				order: 20,
+				order: 30,
 				route: '/match',
 				title: 'Schedule',
 				icon: 'view_agenda'
 			},
 			{
-				order: 30,
+				order: 40,
 				route: '/score',
 				title: 'Scores',
 				icon: 'subtitles'
 			},
-			{
-				order: 90,
-				route: '/admin',
-				title: 'Admin',
-				icon: 'settings'
-			}
 		];
 		this.navAdmin = [
 			{
@@ -158,12 +162,6 @@ export class LayoutService {
 				title: 'Timer Control',
 				icon: 'timer'
 			},
-			{
-				order: 90,
-				route: '/',
-				title: 'Public Site',
-				icon: 'public'
-			}
 		];
 	}
 

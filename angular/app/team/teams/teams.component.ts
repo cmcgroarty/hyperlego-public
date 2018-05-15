@@ -16,11 +16,11 @@ export class TeamsComponent implements OnInit, OnDestroy {
 	selectedTab = 0;
 	private unsubscribe$ = new Subject<void>();
 
-	constructor( private layout: LayoutService, public todoStore: TeamStoreService ) {
+	constructor( private layoutService: LayoutService, public todoStore: TeamStoreService ) {
 	}
 
 	ngOnInit() {
-		this.layout.setTitle( 'Teams' );
+		this.layoutService.setTitle( 'Teams' );
 	}
 
 	ngOnDestroy() {

@@ -43,14 +43,19 @@ module.exports.routes = {
 	//  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
 	//  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
 	//  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
-
 	/**
-	 *	SCORES
+	 *    MATCH
 	 */
-	'GET /api/score/not/null':'score/get-not-null-played',
+	'GET /api/match/current': 'match/get-current-match',
+	'POST /api/match/next': 'match/set-next-match',
 
 	/**
-	 *	TIMER
+	 *    SCORE
+	 */
+	'GET /api/score/not/null': 'score/get-not-null-played',
+
+	/**
+	 *    TIMER
 	 */
 	'POST /api/timer/': 'timer/subscribe',
 	'POST /api/timer/control/start/': 'timer/start',

@@ -24,7 +24,7 @@ export class MatchesComponent implements OnInit, OnDestroy {
 	private unsubscribe$ = new Subject<void>();
 
 	constructor(
-		private layout: LayoutService,
+		private layoutService: LayoutService,
 		private matchStore: MatchStoreService,
 		private scroll: PageScrollService,
 		@Inject( DOCUMENT ) private document: any
@@ -32,7 +32,7 @@ export class MatchesComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
-		this.layout.setTitle( 'Schedule' );
+		this.layoutService.setTitle( 'Schedule' );
 		this.matchStore.matches$.pipe( takeUntil( this.unsubscribe$ ) )
 			.subscribe( matches => {
 				this.matches = matches;

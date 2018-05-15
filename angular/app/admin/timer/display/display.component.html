@@ -1,15 +1,18 @@
 <div class="fullpage timer-container">
-	<mat-toolbar class="current-match">
-		<span>Match #</span>
-		<span fxFlex></span>
-		<span [ngSwitch]="sailsSocketService.subscribed">
-			<mat-icon *ngSwitchCase="true">check_circle</mat-icon>
-			<mat-icon *ngSwitchCase="false">remove_circle</mat-icon>
+	<hyper-current-match-toolbar currentMatch="currentMatch">
+		<span [ngSwitch]="isAudioSuspended()">
+			<button mat-icon-button (click)="unlockAudio()" *ngSwitchCase="true">
+				<mat-icon>volume_off</mat-icon>
+			</button>
+			<button mat-icon-button *ngSwitchCase="false">
+				<mat-icon>volume_up</mat-icon>
+			</button>
 		</span>
-	</mat-toolbar>
+	</hyper-current-match-toolbar>
 	<div fxFlex="grow"></div>
 	<div fxFlex="nogrow" fxLayout="row" fxLayoutAlign="center center">
-		<div class="timer-text mat-display-4" [ngStyle]="{'color': timer | timerColor}">{{timer?.time * 1000 | date:'mm:ss'}}
+		<div class="timer-text mat-display-4" [ngStyle]="{'color': timer | timerColor}">{{timer?.time * 1000 |
+			date:'mm:ss'}}
 		</div>
 	</div>
 </div>

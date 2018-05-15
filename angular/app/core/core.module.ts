@@ -11,6 +11,8 @@ import { NavListComponent } from './components/sidebar/navlist/nav-list.componen
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CoreRoutingModule } from './core-routing.module';
 import { throwIfAlreadyLoaded } from './guards/module-import.guard';
+import { AboutComponent } from './components/about/about.component';
+import { GameComponent } from './components/game/game.component';
 
 @NgModule( {
 	imports: [
@@ -20,7 +22,7 @@ import { throwIfAlreadyLoaded } from './guards/module-import.guard';
 		HttpClientModule,
 		SailsModule,
 	],
-	declarations: [ LoginComponent, NotFoundComponent, SidebarComponent, HomeComponent, NavListComponent, ],
+	declarations: [ LoginComponent, NotFoundComponent, SidebarComponent, HomeComponent, NavListComponent, AboutComponent, GameComponent, ],
 	exports: [
 		RouterModule,
 		SidebarComponent,

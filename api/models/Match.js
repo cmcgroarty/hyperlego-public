@@ -23,7 +23,7 @@ module.exports = {
 		},
 		type: {
 			type: 'string',
-			isIn:  [ 'practice', 'qualification', 'elimination', 'replay' ],
+			isIn: [ 'practice', 'qualification', 'elimination', 'replay' ],
 			defaultsTo: 'practice'
 		},
 		round: {
@@ -50,6 +50,12 @@ module.exports = {
 			via: 'match'
 		}
 	},
+
+	afterUpdate: async function ( updatedRecord, proceed ) {
+		let updatedMatch = await Match.findOne( updatedRecord.id ).populate( 'scores' );
+		Match.publish( [ updatedMatch.id ], updatedMatch );
+		return proceed();
+	}
 
 };
 

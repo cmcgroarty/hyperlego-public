@@ -5,3 +5,18 @@
 		<span class="mat-title" matLine>{{nav.title}}</span>
 	</mat-list-item>
 </mat-nav-list>
+<div fxFlex="grow"></div>
+<mat-nav-list>
+	<mat-list-item routerLink="/about" (click)="closeSidenav.emit(true)">
+		<mat-icon matListIcon>help</mat-icon>
+		<span class="mat-title" matLine>About</span>
+	</mat-list-item>
+	<mat-list-item *ngIf="!layoutService.isAdmin()" routerLink="/admin/dashboard" (click)="closeSidenav.emit(true)">
+		<mat-icon matListIcon>settings</mat-icon>
+		<span class="mat-title" matLine></span>
+	</mat-list-item>
+	<mat-list-item *ngIf="layoutService.isAdmin()" routerLink="/" (click)="closeSidenav.emit(true)">
+		<mat-icon matListIcon>public</mat-icon>
+		<span class="mat-title" matLine>Public Site</span>
+	</mat-list-item>
+</mat-nav-list>

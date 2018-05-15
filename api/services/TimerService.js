@@ -8,7 +8,9 @@ const defaultTime = 10;
 const status = {ready: 'ready', running: 'running', stopped: 'stopped'};
 module.exports = {
 	room: 'hyperlegoTimer',
+	updateType: 'timerUpdate',
 	interval: null,
+	publishing: null,
 	timer: {
 		status: status.ready,
 		time: defaultTime
@@ -19,13 +21,14 @@ module.exports = {
 			this.timer.status = status.running;
 			this.run();
 			this.interval = setInterval(this.run, 1000);
+			this.publishing = setInterval(this.chat, 250);
 		}
 	},
 	run: function () {
 		this.timer.time -= 1;
-		this.chat();
 		if (this.timer.time <= 0) {
 			this.clear();
+			this.chat();
 		}
 	},
 	stop: function () {
@@ -47,9 +50,13 @@ module.exports = {
 			clearInterval(this.interval);
 			this.interval = null;
 		}
+		if(this.publishing != null) {
+			clearInterval(this.publishing);
+			this.publishing = null;
+		}
 	},
 	chat: function () {
-		sails.sockets.broadcast(this.room, 'timerUpdate', this.timer);
+		sails.sockets.broadcast(this.room, this.updateType, this.timer);
 	}
 };
 

@@ -9,8 +9,10 @@ import {
 	MatMenuModule,
 	MatSidenavModule,
 	MatSnackBarModule,
+	MatProgressSpinnerModule,
 	MatTabsModule,
-	MatToolbarModule
+	MatToolbarModule,
+	SimpleSnackBar
 } from '@angular/material';
 
 @NgModule( {
@@ -23,7 +25,8 @@ import {
 		MatSidenavModule,
 		MatSnackBarModule,
 		MatTabsModule,
-		MatListModule
+		MatListModule,
+		MatProgressSpinnerModule
 	],
 	exports: [
 		MatButtonModule,
@@ -34,7 +37,8 @@ import {
 		MatSidenavModule,
 		MatSnackBarModule,
 		MatTabsModule,
-		MatListModule
+		MatListModule,
+		MatProgressSpinnerModule
 	],
 	providers: [ {
 		provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,

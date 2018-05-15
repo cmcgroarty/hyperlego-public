@@ -3,23 +3,27 @@
 				 fixedInViewport="true"
 				 [attr.role]="isHandset ? 'dialog' : 'navigation'"
 				 [mode]="isHandset || layoutService.forceSidenavClose ? 'over' : 'side'"
-				 [opened]="!isHandset && !layoutService.forceSidenavClose">
-		<div fxLayout="column" fxLayoutAlign="center center">
+				 [opened]="!isHandset && !layoutService.forceSidenavClose" fxLayout="column"
+				 fxLayoutAlign="space-between" fxFlex>
+		<div fxFlex="nogrow" fxLayout="column" fxLayoutAlign="center center">
 			<img [src]="LOGO" style="max-width: 80%;"/>
 		</div>
 		<hyper-nav-list [navs]="layoutService.nav" (closeSidenav)="close()"></hyper-nav-list>
 	</mat-sidenav>
 	<mat-sidenav-content role="main" fxLayout="column">
 		<mat-toolbar color="primary" fxFlex="noshrink" [hidden]="layoutService.hideToolbar">
-			<button mat-icon-button (click)="sidenav.toggle()" *ngIf="(isHandset || layoutService.forceSidenavClose) && !backButton()">
+			<button mat-icon-button (click)="sidenav.toggle()"
+					*ngIf="(isHandset || layoutService.forceSidenavClose) && !backButton()">
 				<mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
 			</button>
 			<button mat-icon-button (click)="back()" *ngIf="backButton()">
 				<mat-icon>arrow_back</mat-icon>
 			</button>
-				<div>HYPER Lego</div>
-				<div [hidden]="appTitle().length === 0"><mat-icon>chevron_right</mat-icon></div>
-				<div [hidden]="appTitle().length === 0">{{ appTitle() }}</div>
+			<div>HYPER Lego</div>
+			<div [hidden]="appTitle().length === 0">
+				<mat-icon>chevron_right</mat-icon>
+			</div>
+			<div [hidden]="appTitle().length === 0">{{ appTitle() }}</div>
 		</mat-toolbar>
 		<div #scrollContainer class="container fullpage">
 			<ng-content></ng-content>

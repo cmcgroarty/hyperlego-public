@@ -12,7 +12,6 @@ import { LayoutService } from '../../services/layout.service';
 	styleUrls: [ './sidebar.component.scss' ]
 } )
 export class SidebarComponent implements OnInit, OnDestroy {
-
 	LOGO = require( '../../../../../assets/images/Logo_2015.svg' );
 	isHandset: boolean;
 	@ViewChild( 'sidenav' ) sidenav: MatSidenav;
@@ -24,7 +23,9 @@ export class SidebarComponent implements OnInit, OnDestroy {
 		private breakpointObserver: BreakpointObserver,
 		public layoutService: LayoutService,
 		private location: Location
-	) {}
+	) {
+	}
+
 	ngOnInit() {
 		this.layoutService.scrollContainer = this.scrollContainer;
 		this.breakpointObserver.observe( [

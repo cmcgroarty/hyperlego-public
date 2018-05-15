@@ -20,11 +20,11 @@ export class ScoresComponent implements OnInit, OnDestroy {
 	private tabFilter$ = new Subject<string>();
 	private unsubscribe$ = new Subject<void>();
 
-	constructor( private layout: LayoutService, private scoreStore: ScoreStoreService ) {
+	constructor( private layoutService: LayoutService, private scoreStore: ScoreStoreService ) {
 	}
 
 	ngOnInit(): void {
-		this.layout.setTitle( 'Scores' );
+		this.layoutService.setTitle( 'Scores' );
 		combineLatest( this.scoreStore.scores$, this.tabFilter$ ).pipe( takeUntil( this.unsubscribe$ ) )
 			.subscribe( ( [ scores, tabFilter ] ) => {
 				this.filterTheScores( scores, tabFilter );
