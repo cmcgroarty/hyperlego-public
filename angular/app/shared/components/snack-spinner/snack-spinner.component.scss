@@ -1,0 +1,12 @@
+hyper-snack-spinner {
+	.mat-progress-spinner circle, .mat-spinner circle {
+		stroke: white;
+	}
+
+	flex-direction: row;
+	box-sizing: border-box;
+	display: flex;
+	max-height: 100%;
+	place-content: center space-between;
+	align-items: center;
+}

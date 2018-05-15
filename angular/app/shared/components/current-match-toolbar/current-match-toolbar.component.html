@@ -1,0 +1,9 @@
+<mat-toolbar [ngClass]="{'subscribed': sailsSocketService.subscribed, 'unsubscribed': !sailsSocketService.subscribed}">
+	<span>Match #{{currentMatch?.id | number:'2.0-0'}}</span>
+	<span fxFlex></span>
+	<ng-content></ng-content>
+	<span [ngSwitch]="sailsSocketService.subscribed">
+			<mat-icon *ngSwitchCase="true">check_circle</mat-icon>
+			<mat-icon *ngSwitchCase="false">remove_circle</mat-icon>
+		</span>
+</mat-toolbar>

@@ -1,0 +1,19 @@
+@import '~@angular/material/theming';
+
+mat-toolbar {
+	&.subscribed {
+		$match-hue: 700;
+		background: mat-color($mat-blue, $match-hue);
+		color: mat-contrast($mat-blue, $match-hue);
+	}
+	&.unsubscribed {
+		$match-hue: 700;
+		background: mat-color($mat-red, $match-hue);
+		color: mat-contrast($mat-red, $match-hue);
+	}
+
+
+	:not(button) > mat-icon {
+		line-height: 40px;
+	}
+}
