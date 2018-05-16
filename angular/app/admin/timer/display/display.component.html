@@ -22,7 +22,7 @@
 		</div>
 		<div fxFlex="100" fxFlex.gt-md="30" fxLayoutAlign="center center" class="timer-text mat-display-4"
 			 [ngStyle]="{'color': timer | timerColor}">
-			{{timer?.time * 1000 | date:'mm:ss'}}
+			{{timer?.time * 1000 | date:'mm'}}<span class="colon">:</span>{{timer?.time * 1000 | date:'ss'}}
 		</div>
 		<div fxShow="false" fxShow.gt-md="true" fxFlex="35">
 			<hyper-score-table-display [scores]="currentMatch?.scores" [bigTeamText]="true">

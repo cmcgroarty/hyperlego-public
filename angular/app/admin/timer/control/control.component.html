@@ -2,13 +2,14 @@
 	<hyper-current-match-toolbar [currentMatch]="currentMatch"></hyper-current-match-toolbar>
 
 	<div fxFlex fxLayout="row" fxLayoutAlign="center center">
-		<div class="timer-text mat-display-4" [ngStyle]="{'color': timer | timerColor}">{{timer?.time * 1000 |
-			date:'mm:ss'}}
+		<div class="timer-text mat-display-4" [ngStyle]="{'color': timer | timerColor}">
+			{{timer?.time * 1000 | date:'mm'}}<span class="colon">:</span>{{timer?.time * 1000 | date:'ss'}}
 		</div>
 	</div>
 	<div fxFlex fxLayout="row" fxLayoutAlign="center">
-		<hyper-score-table-display [scores]="currentMatch?.scores"
-								   fxFlex="90" fxFlex.gt-sm="80" fxFlex.gt-md="60" fxFlex.gt-lg="40"></hyper-score-table-display>
+		<div fxFlex="90" fxFlex.gt-sm="80" fxFlex.gt-md="60" fxFlex.gt-lg="40">
+			<hyper-score-table-display [scores]="currentMatch?.scores" [bigTeamText]="true"></hyper-score-table-display>
+		</div>
 	</div>
 	<div fxLayout="row" fxLayoutAlign="center start" fxFlex>
 		<div fxFlex="90" fxFlex.gt-sm="80" fxFlex.gt-md="60" fxFlex.gt-lg="40" fxLayout="column"

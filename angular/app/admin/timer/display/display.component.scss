@@ -4,6 +4,11 @@
 
 .timer-text {
 	font-size: 12vh;
+	.colon {
+		font-size: 8vh;
+		top: -0.4vh;
+		position: relative;
+	}
 }
 
 .mat-display-3, .mat-display-4, .mat-subheading-1 {
