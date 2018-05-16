@@ -45,6 +45,24 @@
 								}
 							],
 							"serviceWorker": true
+						},
+						"jin": {
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"extractCss": true,
+							"namedChunks": false,
+							"aot": true,
+							"extractLicenses": true,
+							"vendorChunk": false,
+							"buildOptimizer": true,
+							"fileReplacements": [
+								{
+									"replace": "angular/environments/environment.ts",
+									"with": "angular/environments/environment.jin.ts"
+								}
+							],
+							"serviceWorker": true
 						}
 					}
 				},
