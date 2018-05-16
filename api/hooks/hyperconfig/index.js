@@ -9,15 +9,7 @@ module.exports = function defineHyperConfigHook( sails ) {
 
 	return {
 
-		/**
-		 * Runs when a Sails app loads/lifts.
-		 *
-		 * @param {Function} done
-		 */
-		initialize: function ( done ) {
-
-			sails.log.info( 'Initializing custom hook (`hyperconfig`)' );
-
+		configure: function(){
 			require( 'no-config' )( {
 				config: require( '../../../.config' )
 			} ).then(
@@ -38,6 +30,16 @@ module.exports = function defineHyperConfigHook( sails ) {
 					}
 
 				} );
+		},
+
+		/**
+		 * Runs when a Sails app loads/lifts.
+		 *
+		 * @param {Function} done
+		 */
+		initialize: function ( done ) {
+
+			sails.log.info( 'Initializing custom hook (`hyperconfig`)' );
 			return done();
 		}
 
