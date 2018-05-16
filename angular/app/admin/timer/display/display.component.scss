@@ -1,4 +1,11 @@
+.timer-container {
+	overflow: hidden;
+}
+
 .timer-text {
-	font-size: 15vh;
-	margin-bottom: 3vh;
+	font-size: 12vh;
+}
+
+.mat-display-3, .mat-display-4, .mat-subheading-1 {
+	margin-bottom:0;
 }

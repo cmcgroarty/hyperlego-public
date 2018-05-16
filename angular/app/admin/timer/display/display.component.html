@@ -10,9 +10,23 @@
 		</span>
 	</hyper-current-match-toolbar>
 	<div fxFlex="grow"></div>
-	<div fxFlex="nogrow" fxLayout="row" fxLayoutAlign="center center">
-		<div class="timer-text mat-display-4" [ngStyle]="{'color': timer | timerColor}">{{timer?.time * 1000 |
-			date:'mm:ss'}}
+	<div fxFlex="nogrow" fxLayout="row" fxLayoutAlign="center center" style="padding-top: 2vh; padding-bottom:2vh; border-top: 1px dotted lightgray;">
+		<div fxShow="false" fxShow.gt-md="true" fxFlex="15" fxLayoutAlign="center center"><img
+			src="assets/images/Logo_2015.svg" style="max-width:80%;"/></div>
+		<div fxShow="false" fxShow.gt-md="true" fxFlex="20" fxLayoutAlign="center center">
+			<div fxLayout="column" fxLayoutAlign="center center" *ngIf="currentMatch">
+				<span class="mat-subheading-1">Match #</span>
+				<span class="mat-display-3">{{currentMatch?.id | number:'2.0-0'}}</span>
+			</div>
+
+		</div>
+		<div fxFlex="100" fxFlex.gt-md="30" fxLayoutAlign="center center" class="timer-text mat-display-4"
+			 [ngStyle]="{'color': timer | timerColor}">
+			{{timer?.time * 1000 | date:'mm:ss'}}
+		</div>
+		<div fxShow="false" fxShow.gt-md="true" fxFlex="35">
+			<hyper-score-table-display [scores]="currentMatch?.scores" [bigTeamText]="true">
+			</hyper-score-table-display>
 		</div>
 	</div>
 </div>

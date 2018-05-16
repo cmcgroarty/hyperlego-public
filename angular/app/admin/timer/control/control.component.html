@@ -6,12 +6,28 @@
 			date:'mm:ss'}}
 		</div>
 	</div>
+	<div fxFlex fxLayout="row" fxLayoutAlign="center">
+		<hyper-score-table-display [scores]="currentMatch?.scores"
+								   fxFlex="90" fxFlex.gt-sm="80" fxFlex.gt-md="60" fxFlex.gt-lg="40"></hyper-score-table-display>
+	</div>
 	<div fxLayout="row" fxLayoutAlign="center start" fxFlex>
-		<div fxFlex="90" fxFlex.gt-sm="80" fxFlex.gt-md="60" fxFlex.gt-lg="40" fxLayout="column" fxLayoutAlign="space-between" fxLayoutGap="1rem" class="buttons">
-			<button mat-raised-button class="success" fxFlexFill (click)="timerStoreService.startTimer()" *ngIf="timer.status === timerStatus.READY" [disabled]="waitingNextMatch || !sailsSocketService.subscribed">Start Match</button>
-			<button mat-raised-button color="warn" fxFlexFill (click)="timerStoreService.stopTimer()" *ngIf="(timer.status === timerStatus.RUNNING) && (timer.time > 0)" [disabled]="!sailsSocketService.subscribed">Stop Match</button>
-			<button mat-raised-button color="accent" fxFlexFill (click)="timerStoreService.resetTimer()" *ngIf="(timer.status === timerStatus.STOPPED) || (timer.time === 0)" [disabled]="(waitingNextMatch && timer.time === 0) || !sailsSocketService.subscribed">Reset Timer</button>
-			<button mat-raised-button color="primary" fxFlexFill (click)="getNextMatch()" [disabled]="!waitingNextMatch || !sailsSocketService.subscribed">Load Next Match</button>
+		<div fxFlex="90" fxFlex.gt-sm="80" fxFlex.gt-md="60" fxFlex.gt-lg="40" fxLayout="column"
+			 fxLayoutAlign="space-between" fxLayoutGap="1rem" class="buttons">
+			<button mat-raised-button class="success" fxFlexFill (click)="timerStoreService.startTimer()"
+					*ngIf="timer.status === timerStatus.READY"
+					[disabled]="waitingNextMatch || !sailsSocketService.subscribed">Start Match
+			</button>
+			<button mat-raised-button color="warn" fxFlexFill (click)="timerStoreService.stopTimer()"
+					*ngIf="(timer.status === timerStatus.RUNNING) && (timer.time > 0)"
+					[disabled]="!sailsSocketService.subscribed">Stop Match
+			</button>
+			<button mat-raised-button color="accent" fxFlexFill (click)="timerStoreService.resetTimer()"
+					*ngIf="(timer.status === timerStatus.STOPPED) || (timer.time === 0)"
+					[disabled]="(waitingNextMatch && timer.time === 0) || !sailsSocketService.subscribed">Reset Timer
+			</button>
+			<button mat-raised-button color="primary" fxFlexFill (click)="getNextMatch()"
+					[disabled]="!waitingNextMatch || !sailsSocketService.subscribed">Load Next Match
+			</button>
 			<div *ngIf="!sailsSocketService.subscribed" class="mat-subheading-2">Socket Needs to be Connected</div>
 		</div>
 	</div>

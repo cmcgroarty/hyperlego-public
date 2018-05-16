@@ -52,10 +52,9 @@ export class ControlComponent implements OnInit, OnDestroy {
 	}
 
 	getNextMatch() {
-		console.log( 'getNextMatch()' );
-		this.matchBackendService.setNextMatch().subscribe( next => {
+		this.timerStoreService.resetTimer();
+		this.matchBackendService.setNextMatch().subscribe( () => {
 			this.waitingNextMatch = false;
-			this.currentMatch = next;
 		} );
 
 	}
