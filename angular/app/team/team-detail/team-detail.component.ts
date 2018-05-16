@@ -17,18 +17,18 @@ export class TeamDetailComponent implements OnInit, OnDestroy {
 	team: Team;
 	private unsubscribe$ = new Subject<void>();
 
-	constructor( private route: ActivatedRoute, private service: TeamBackendService, private layout: LayoutService ) {
+	constructor( private route: ActivatedRoute, private service: TeamBackendService, private layoutService: LayoutService ) {
 	}
 
 	ngOnInit() {
-		this.layout.backButton = true;
+		this.layoutService.backButton = true;
 		this.team$ = this.route.paramMap.pipe( switchMap( ( params: ParamMap ) => {
 			return this.service.getTeam( +params.get( 'id' ) );
 		} ) );
 		this.team$.pipe( takeUntil( this.unsubscribe$ ) )
 			.subscribe( team => {
 				this.team = team;
-				this.layout.setTitle( 'Team #' + team.id );
+				this.layoutService.setTitle( 'Team #' + team.id );
 			} );
 	}
 
