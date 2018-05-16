@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { LayoutService } from '../../services/layout.service';
 
 @Component( {
 	selector: 'hyper-game',
@@ -9,10 +11,11 @@ export class GameComponent implements OnInit {
 
 	public selectedTab: number;
 
-	constructor() {
+	constructor(private route: ActivatedRoute, private layoutService: LayoutService) {
 	}
 
 	ngOnInit() {
+		this.layoutService.setTitle( 'FLL World Class' );
 		this.selectedTab = 0;
 	}
 
