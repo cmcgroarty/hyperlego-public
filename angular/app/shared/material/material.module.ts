@@ -42,7 +42,7 @@ import {
 	],
 	providers: [ {
 		provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
-		useValue: { duration: 2500, horizontalPosition: 'start', verticalPosition: 'bottom' }
+		useValue: { duration: 2500, horizontalPosition: 'end', verticalPosition: 'bottom' }
 	} ]
 } )
 export class MaterialModule {
