@@ -1,5 +1,5 @@
 <div class="fullpage timer-container">
-	<hyper-current-match-toolbar currentMatch="currentMatch">
+	<hyper-current-match-toolbar [currentMatch]="currentMatch">
 		<span [ngSwitch]="isAudioSuspended()">
 			<button mat-icon-button (click)="unlockAudio()" *ngSwitchCase="true">
 				<mat-icon>volume_off</mat-icon>

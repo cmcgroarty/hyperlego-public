@@ -1,5 +1,5 @@
 <div class="fullpage timer-container">
-	<hyper-current-match-toolbar currentMatch="currentMatch"></hyper-current-match-toolbar>
+	<hyper-current-match-toolbar [currentMatch]="currentMatch"></hyper-current-match-toolbar>
 
 	<div fxFlex fxLayout="row" fxLayoutAlign="center center">
 		<div class="timer-text mat-display-4" [ngStyle]="{'color': timer | timerColor}">{{timer?.time * 1000 |
