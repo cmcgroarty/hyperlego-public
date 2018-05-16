@@ -28,6 +28,15 @@ module.exports = function defineHyperConfigHook( sails ) {
 						url: 'mysql://' + db.user + ':' + db.password + '@' + db.host
 						+ ( db.port ? ':' + db.port : '' ) + '/' + db.database
 					};
+					sails.config.port = conf.api.port;
+					if(conf.ssl.use){
+						var fs = require('fs');
+						sails.config.ssl = {
+							key: fs.readFileSync(require('path').resolve(__dirname, conf.ssl.key)),
+							cert: fs.readFileSync(require('path').resolve(__dirname, conf.ssl.cert))
+						};
+					}
+
 				} );
 			return done();
 		}
