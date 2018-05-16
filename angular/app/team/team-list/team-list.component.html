@@ -9,7 +9,7 @@
 					<span class="mat-display-2">{{team.id | number:'2.0-0'}}</span>
 			</div>
 			<div class="team-info" fxFlex="grow" fxLayout="column" fxLayoutAlign="center start">
-				<div class="mat-title">{{team.name}}</div>
+				<div class="mat-title" [innerHTML]="team.name"></div>
 				<div class="mat-subheading-2">{{team.school.name}} {{team.school.level}}</div>
 				<div class="mat-caption">{{divisions[team.division]}}</div>
 			</div>
