@@ -14,6 +14,7 @@ import { Table } from '../../shared/model/table.model';
 	selector: 'hyper-matches',
 	templateUrl: './matches.component.html',
 	styleUrls: [ './matches.component.scss' ],
+
 } )
 export class MatchesComponent implements OnInit, OnDestroy {
 
@@ -52,12 +53,12 @@ export class MatchesComponent implements OnInit, OnDestroy {
 
 	scrollToPlaying() {
 		if ( this.playing !== undefined ) {
-			console.log( '#match' + this.playing.id );
 			const pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance( {
 				document: this.document,
-				pageScrollOffset: 0,
+				pageScrollOffset: (this.layoutService.isHandset ? 58 : 66),
 				scrollTarget: '#match' + this.playing.id,
-				verticalScrolling: true
+				verticalScrolling: true,
+				scrollingViews: [this.layoutService.scrollContainer.nativeElement]
 			} );
 			this.scroll.start( pageScrollInstance );
 			this.initialMatchesLoaded = true;
@@ -77,12 +78,6 @@ export class MatchesComponent implements OnInit, OnDestroy {
 
 	isMatchPlaying( match: Match ): boolean {
 		return match.status === MatchStatus.PLAYING;
-	}
-
-	getScoreByTable( scores: Score[], table: Table ): Score {
-		return scores.find( score => {
-			return ( Table[ score.table_name ] === table ) || ( score.table_name === table );
-		} );
 	}
 
 }

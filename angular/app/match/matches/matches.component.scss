@@ -22,10 +22,4 @@
 	display: block;
 	position: relative;
 	visibility: hidden;
-	.handset & {
-		top: -58px;
-	}
-	.desktop & {
-		top: -66px;
-	}
 }
