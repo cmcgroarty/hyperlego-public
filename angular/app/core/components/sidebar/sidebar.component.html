@@ -1,19 +1,19 @@
-<mat-sidenav-container [ngClass]="isHandset ? 'handset' : 'desktop'">
+<mat-sidenav-container [ngClass]="layoutService.isHandset ? 'handset' : 'desktop'">
 	<mat-sidenav #sidenav
 				 fixedInViewport="true"
-				 [attr.role]="isHandset ? 'dialog' : 'navigation'"
-				 [mode]="isHandset || layoutService.forceSidenavClose ? 'over' : 'side'"
-				 [opened]="!isHandset && !layoutService.forceSidenavClose" fxLayout="column"
+				 [attr.role]="layoutService.isHandset ? 'dialog' : 'navigation'"
+				 [mode]="layoutService.isHandset || layoutService.forceSidenavClose ? 'over' : 'side'"
+				 [opened]="!layoutService.isHandset && !layoutService.forceSidenavClose" fxLayout="column"
 				 fxLayoutAlign="space-between" fxFlex>
 		<div fxFlex="nogrow" fxLayout="column" fxLayoutAlign="center center">
-			<img [src]="LOGO" style="max-width: 80%;"/>
+			<img src="assets/images/Logo_2015.svg" style="max-width: 80%;"/>
 		</div>
 		<hyper-nav-list [navs]="layoutService.nav" (closeSidenav)="close()"></hyper-nav-list>
 	</mat-sidenav>
 	<mat-sidenav-content role="main" fxLayout="column">
 		<mat-toolbar color="primary" fxFlex="noshrink" [hidden]="layoutService.hideToolbar">
 			<button mat-icon-button (click)="sidenav.toggle()"
-					*ngIf="(isHandset || layoutService.forceSidenavClose) && !backButton()">
+					*ngIf="(layoutService.isHandset || layoutService.forceSidenavClose) && !backButton()">
 				<mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
 			</button>
 			<button mat-icon-button (click)="back()" *ngIf="backButton()">

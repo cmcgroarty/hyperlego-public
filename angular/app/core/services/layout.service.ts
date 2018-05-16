@@ -1,26 +1,36 @@
-import { ElementRef, Injectable } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { ElementRef, Injectable, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { GuardsCheckEnd, NavigationStart, Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { Subject } from 'rxjs/index';
+import { filter, takeUntil } from 'rxjs/operators';
 import { NavItem } from '../../shared/model/nav-item.model';
 import { NavType } from '../../shared/model/nav-type.model';
 
 @Injectable( {
 	providedIn: 'root'
 } )
-export class LayoutService {
+export class LayoutService implements OnDestroy {
 	private title: string;
 	private globalTitle: string;
 	private currentNav: NavType;
 	private navAdmin: NavItem[];
 	private navPublic: NavItem[];
+	private unsubscribe$ = new Subject<void>();
 
-	constructor( private titleService: Title, private router: Router ) {
+	constructor( private titleService: Title, private router: Router, private breakpointObserver: BreakpointObserver ) {
 		this.globalTitle = 'HYPER Lego | powered by iDesign Consulting';
 		this.setDefaultLayout();
 		this.initializeNavs();
 		this.setNav( NavType.PUBLIC );
 		this.routerEventSubscribers();
+		this.breakpointSubscriber();
+	}
+
+	private _isHandset: boolean;
+
+	get isHandset(): boolean {
+		return this._isHandset;
 	}
 
 	private _nav: NavItem[];
@@ -67,6 +77,11 @@ export class LayoutService {
 
 	set backButton( value: boolean ) {
 		this._backButton = value;
+	}
+
+	ngOnDestroy() {
+		this.unsubscribe$.next();
+		this.unsubscribe$.complete();
 	}
 
 	isAdmin(): boolean {
@@ -187,6 +202,18 @@ export class LayoutService {
 				} else if ( this.currentNav !== NavType.PUBLIC ) {
 					this.setNav( NavType.PUBLIC );
 				}
+			} );
+	}
+
+	private breakpointSubscriber() {
+		this.breakpointObserver.observe( [
+			Breakpoints.Handset,
+			Breakpoints.Tablet,
+			'(max-width: 1280px)',
+			Breakpoints.WebPortrait
+		] ).pipe( takeUntil( this.unsubscribe$ ) )
+			.subscribe( breakpoint => {
+				this._isHandset = breakpoint.matches;
 			} );
 	}
 }
