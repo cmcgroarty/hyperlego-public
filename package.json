@@ -34,6 +34,7 @@
 		"grunt": "1.0.1",
 		"hammerjs": "^2.0.8",
 		"howler": "^2.0.12",
+		"moment": "^2.22.1",
 		"ng-http-loader": "^1.0.1",
 		"ng2-pdf-viewer": "^5.0.1",
 		"ngx-drag-scroll": "^1.7.9",
@@ -41,6 +42,7 @@
 		"ngx-order-pipe": "^2.0.1",
 		"ngx-page-scroll": "^4.0.2",
 		"no-config": "^1.1.2",
+		"rollbar": "^2.3.9",
 		"rxjs": "^6.1.0",
 		"sails": "^1.0.2",
 		"sails-hook-grunt": "^3.0.2",
@@ -48,6 +50,7 @@
 		"sails-hook-sockets": "^1.4.0",
 		"sails-mysql": "^1.0.0",
 		"sails-seed": "^0.5.0",
+		"spotify-web-api-node": "^3.1.1",
 		"zone.js": "^0.8.26"
 	},
 	"devDependencies": {
