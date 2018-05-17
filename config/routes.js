@@ -62,6 +62,12 @@ module.exports.routes = {
 	'POST /api/timer/control/stop/': 'timer/stop',
 	'POST /api/timer/control/reset/': 'timer/reset',
 
+	/**
+	 *    SPOTIFY
+	 */
+	'GET /api/spotify/track': 'spotify/search-track',
+	'GET /api/spotify/image/:image': 'spotify/image',
+
 
 	//  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
 	//  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗

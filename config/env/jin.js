@@ -25,9 +25,8 @@ module.exports = {
 	log: {
 		level: 'debug'
 	},
-	/*
 	ssl:{
 		cert:fs.readFileSync(pth.resolve(__dirname, hyperconfig.cert)),
 		key:fs.readFileSync(pth.resolve(__dirname, hyperconfig.key)),
-	}*/
+	}
 };
