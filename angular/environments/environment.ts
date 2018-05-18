@@ -5,5 +5,6 @@
 
 export const environment = {
 	production: false,
-	api: require('../../.config').api.development
+	api: require('../../.config').api.development,
+	cookie: require('../../.config').cookie.development
 };

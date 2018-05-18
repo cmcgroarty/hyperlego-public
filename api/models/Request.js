@@ -40,7 +40,7 @@ module.exports = {
 		uuid: {
 			type: 'string',
 			isUUID: true,
-			required: true,
+			allowNull: true
 		}
 
 		//  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗

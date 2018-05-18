@@ -68,6 +68,17 @@ module.exports.routes = {
 	'GET /api/spotify/track': 'spotify/search-track',
 	'GET /api/spotify/image/:image': 'spotify/image',
 
+	/**
+	 *    DJ REQUEST
+	 */
+	'POST /api/djrequest': 'request/create',
+
+	/**
+	 *    AUTH
+	 */
+	'POST /api/auth/login':'auth/login',
+	'GET /api/auth/logout':'auth/logout',
+
 
 	//  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
 	//  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
