@@ -12,5 +12,16 @@
 }
 
 .mat-display-3, .mat-display-4, .mat-subheading-1 {
-	margin-bottom:0;
+	margin-bottom: 0;
+}
+
+.mat-display-4 {
+	.mat-icon {
+		height: auto;
+		width: auto;
+	}
+	.material-icons {
+		font-size: 100%;
+		vertical-align:top;
+	}
 }
