@@ -97,6 +97,7 @@ bower_components
 ################################################
 
 .tmp
+.image
 
 
 ################################################
@@ -138,5 +139,5 @@ lib-cov
 # ES5/6 auto generated files
 ################################################
 
-assets/app/**.js*
-assets/dist
+angular/app/**.js*
+angular/dist
