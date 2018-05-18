@@ -17,7 +17,7 @@ export class SailsSocketService {
 		this.sailsService.connect( {
 			url: this.api.socket,
 			transports: [ 'websocket' ],
-			reconnection: true,
+			reconnection: false,
 			environment: (environment.production ? 'production' : 'development' )
 		} );
 

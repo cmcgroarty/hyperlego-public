@@ -11,7 +11,7 @@
 		<hyper-nav-list [navs]="layoutService.nav" (closeSidenav)="close()"></hyper-nav-list>
 	</mat-sidenav>
 	<mat-sidenav-content role="main" fxLayout="column">
-		<mat-toolbar color="primary" fxFlex="noshrink" [hidden]="layoutService.hideToolbar">
+		<mat-toolbar color="primary" fxFlex="noshrink" *ngIf="!layoutService.hideToolbar">
 			<button mat-icon-button (click)="sidenav.toggle()"
 					*ngIf="(layoutService.isHandset || layoutService.forceSidenavClose) && !backButton()">
 				<mat-icon aria-label="Side nav toggle icon">menu</mat-icon>

@@ -1,5 +1,5 @@
 import { Match } from './match.model';
-import { Table } from './table.model';
+import { Table } from './table.enum';
 import { Team } from './team.model';
 
 export interface Score {

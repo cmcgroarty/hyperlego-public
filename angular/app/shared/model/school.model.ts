@@ -1,4 +1,4 @@
-import { SchoolLevel } from './school-level.model';
+import { SchoolLevel } from './school-level.enum';
 
 export interface School {
 	id?: number;

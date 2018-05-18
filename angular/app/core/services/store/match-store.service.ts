@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SailsService } from 'angular2-sails';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { MatchStatus } from '../../../shared/model/match-status.model';
+import { MatchStatus } from '../../../shared/model/match-status.enum';
 import { Match } from '../../../shared/model/match.model';
 import { MatchBackendService } from '../backend/match-backend.service';
 

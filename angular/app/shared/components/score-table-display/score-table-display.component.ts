@@ -1,6 +1,6 @@
 import { Component, HostBinding, Input, OnChanges } from '@angular/core';
 import { Score } from '../../model/score.model';
-import { Table } from '../../model/table.model';
+import { Table } from '../../model/table.enum';
 
 @Component( {
 	selector: 'hyper-score-table-display',

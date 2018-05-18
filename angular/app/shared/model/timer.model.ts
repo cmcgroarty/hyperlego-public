@@ -1,4 +1,4 @@
-import { TimerStatus } from './timer-status.model';
+import { TimerStatus } from './timer-status.enum';
 
 export interface Timer {
 	status?: TimerStatus;

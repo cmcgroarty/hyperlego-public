@@ -6,8 +6,8 @@ import { BehaviorSubject, Subject } from 'rxjs/index';
 import { filter, takeUntil } from 'rxjs/operators';
 import { navAdmin, navPublic } from '../../../../.config/mocks/navs';
 import { NavItem } from '../../shared/model/nav-item.model';
-import { NavType } from '../../shared/model/nav-type.model';
-import { ScreenSize } from '../../shared/model/screen-size.model';
+import { NavType } from '../../shared/model/nav-type.enum';
+import { ScreenSize } from '../../shared/model/screen-size.enum';
 
 @Injectable( {
 	providedIn: 'root'

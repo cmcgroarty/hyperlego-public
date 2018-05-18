@@ -2,7 +2,7 @@
 	<mat-list-item *ngIf="filteredTeams()?.length < 1"><span class="mat-subheading-2">No Teams to Display</span>
 		<mat-divider></mat-divider>
 	</mat-list-item>
-	<mat-list-item *ngFor="let team of filteredTeams() | orderBy:'id'" routerLink="{{router.url}}/{{team.id}}/">
+	<mat-list-item *ngFor="let team of filteredTeams() | orderBy:'id'" [routerLink]="['team', team.id]">
 		<div fxLayout="row" fxFlexFill fxLayoutGap="2rem">
 			<div fxFlex.gt-md="10" fxLayout="row" fxLayoutAlign="center center">
 					<span class="mat-display-1">#</span>

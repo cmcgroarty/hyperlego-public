@@ -5,10 +5,10 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { LayoutService } from '../../core/services/layout.service';
 import { MatchStoreService } from '../../core/services/store/match-store.service';
-import { MatchStatus } from '../../shared/model/match-status.model';
+import { MatchStatus } from '../../shared/model/match-status.enum';
 import { Match } from '../../shared/model/match.model';
 import { Score } from '../../shared/model/score.model';
-import { Table } from '../../shared/model/table.model';
+import { Table } from '../../shared/model/table.enum';
 
 @Component( {
 	selector: 'hyper-matches',

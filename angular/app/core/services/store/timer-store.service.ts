@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SailsService } from 'angular2-sails';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { TimerStatus } from '../../../shared/model/timer-status.model';
+import { TimerStatus } from '../../../shared/model/timer-status.enum';
 import { Timer } from '../../../shared/model/timer.model';
 import { TimerBackendService } from '../backend/timer-backend.service';
 

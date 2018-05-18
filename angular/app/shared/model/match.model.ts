@@ -1,5 +1,5 @@
-import { MatchStatus } from './match-status.model';
-import { MatchType } from './match-type.model';
+import { MatchStatus } from './match-status.enum';
+import { MatchType } from './match-type.enum';
 import { Score } from './score.model';
 
 export interface Match {

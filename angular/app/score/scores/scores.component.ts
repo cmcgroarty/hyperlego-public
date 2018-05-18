@@ -5,8 +5,8 @@ import { takeUntil } from 'rxjs/operators';
 import { LayoutService } from '../../core/services/layout.service';
 import { ScoreBackendService } from '../../core/services/backend/score-backend.service';
 import { ScoreStoreService } from '../../core/services/store/score-store.service';
-import { Division } from '../../shared/model/division.model';
-import { MatchStatus } from '../../shared/model/match-status.model';
+import { Division } from '../../shared/model/division.enum';
+import { MatchStatus } from '../../shared/model/match-status.enum';
 import { Score } from '../../shared/model/score.model';
 
 @Component( {

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Division } from '../model/division.model';
+import { Division } from '../model/division.enum';
 
 @Pipe( {
 	name: 'byDivision'

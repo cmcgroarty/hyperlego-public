@@ -1,3 +1,28 @@
-<p>
-	login works!
-</p>
+<div class="login-container fullpage" fxLayout="row" fxLayoutAlign="center center">
+	<mat-card class="mat-elevation-z2" fxFlex="98" fxFlex.gt-xs="60" fxFlex.gt-sm="40" fxFlex.gt-md="30" fxFlex.gt-lg="20">
+		<mat-toolbar>
+			<mat-toolbar-row fxLayoutAlign="center center">
+				<img src="assets/images/Logo_2015.svg" style="max-width: 80%;"/>
+			</mat-toolbar-row>
+		</mat-toolbar>
+		<mat-progress-bar [mode]="isWaiting ? 'indeterminate' : 'determinate'" value="0"
+						  color="primary"></mat-progress-bar>
+		<mat-toolbar class="message" [ngClass]="loginResponseType" fxLayoutAlign="center"><div class="mat-subheading-1" *ngIf="loginMessage">{{loginMessage}}</div></mat-toolbar>
+		<mat-card-content>
+			<form [formGroup]="loginForm" (ngSubmit)="login()" fxLayout="column">
+				<mat-form-field>
+					<input matInput type="text" formControlName="username" name="username" placeholder="username"/>
+					<mat-error *ngIf="username.hasError('required')">Username is required</mat-error>
+					<mat-error *ngIf="username.hasError('pattern')">Please enter a clean username</mat-error>
+				</mat-form-field>
+				<mat-form-field>
+					<input matInput type="password" formControlName="password" name="password" placeholder="password"/>
+					<mat-error *ngIf="password.hasError('required')">Password is required</mat-error>
+				</mat-form-field>
+
+				<button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isWaiting">{{isWaiting ? 'Logging In' : 'Login'}}</button>
+				<button mat-raised-button color="accent" [routerLink]="['/']">I Shouldn't Be Here</button>
+			</form>
+		</mat-card-content>
+	</mat-card>
+</div>

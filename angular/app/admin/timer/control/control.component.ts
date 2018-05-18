@@ -7,7 +7,7 @@ import { SailsSocketService } from '../../../core/services/sails-socket.service'
 import { MatchStoreService } from '../../../core/services/store/match-store.service';
 import { TimerStoreService } from '../../../core/services/store/timer-store.service';
 import { Match } from '../../../shared/model/match.model';
-import { TimerStatus } from '../../../shared/model/timer-status.model';
+import { TimerStatus } from '../../../shared/model/timer-status.enum';
 import { Timer } from '../../../shared/model/timer.model';
 
 @Component( {

@@ -15,16 +15,10 @@ export class TeamBackendService {
 
 	getAllTeams(): Observable<Team[]> {
 		return this.http.get<Team[]>( this.api.url + '/team' );
-		// return of( TEAMS );
 	}
 
 	getTeam( id: number ): Observable<Team> {
 		return this.http.get<Team>( this.api.url + '/team/' + id );
-		/*
-		return of( TEAMS.find( team => {
-			return team.id === id;
-		} ) );
-		*/
 	}
 
 	createTeam( team: Team ): Observable<Team> {

@@ -1,5 +1,5 @@
 /**
- * Jin environment settings
+ * Development environment settings
  * (sails.config.*)
  *
  * What you see below is a quick outline of the built-in settings you need
@@ -7,7 +7,7 @@
  * is only used in your production environment, i.e. when you lift your app using:
  *
  * ```
- * NODE_ENV=jin node app
+ * NODE_ENV=development node app
  * ```
  *
  * > If you're using git as a version control solution for your Sails app,
@@ -18,19 +18,19 @@
  * For more best practices and tips, see:
  * https://sailsjs.com/docs/concepts/deployment
  */
-const fs = require( 'fs' );
-const pth = require( 'path' );
-const hyperconfig = require( '../../.config/' );
-const name = 'jin';
+const hyperconfig = require('../../.config/');
+const name = 'development';
 module.exports = {
 	log: {
-		level: 'debug'
-	},
-	ssl: {
-		cert: fs.readFileSync( pth.resolve( __dirname, hyperconfig.ssl[ name ].cert ) ),
-		key: fs.readFileSync( pth.resolve( __dirname, hyperconfig.ssl[ name ].key ) ),
+		level: 'info'
 	},
 	session: {
-		name: hyperconfig.cookie[ name ].sails_session.key,
-		secret: hyperconfig.cookie[ name ].sails_session.secret
+		name: hyperconfig.cookie[name].sails_session.key,
+		secret: hyperconfig.cookie[name].sails_session.secret,
+
+		cookie: {
+			maxAge: 24 * 60 * 60 * 1000,  // 24 hours
+		},
 	}
+
+};

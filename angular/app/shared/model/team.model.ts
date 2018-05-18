@@ -1,4 +1,4 @@
-import { Division } from './division.model';
+import { Division } from './division.enum';
 import { School } from './school.model';
 import { Score } from './score.model';
 

@@ -23,11 +23,11 @@ module.exports.routes = {
 	 * `assets` directory)                                                      *
 	 *                                                                          *
 	 ***************************************************************************/
-
+ /*
 	'/': {
 		view: 'pages/homepage'
 	},
-
+*/
 	/***************************************************************************
 	 *                                                                          *
 	 * More custom routes here...                                               *
@@ -78,6 +78,7 @@ module.exports.routes = {
 	 */
 	'POST /api/auth/login':'auth/login',
 	'GET /api/auth/logout':'auth/logout',
+	'POST /api/auth/me':'auth/me',
 
 
 	//  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗

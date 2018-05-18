@@ -1,0 +1,59 @@
+@import '~@angular/material/theming';
+
+.login-container {
+	background-color: #003a66;
+
+	mat-toolbar {
+		&, mat-toolbar-row {
+			height: fit-content;
+			padding: 0.5rem;
+		}
+
+		.mat-subheading-1 {
+			margin-bottom: 0;
+
+		}
+		&.message {
+			text-align: center;
+			background: white;
+			min-height: 40px;
+			&.warn {
+				$warn-hue: 700;
+				background: mat-color($mat-red, $warn-hue);
+				color: mat-contrast($mat-red, $warn-hue);
+			}
+			&.success {
+				$success-hue: 700;
+				background: mat-color($mat-green, $success-hue);
+				color: mat-contrast($mat-green, $success-hue);
+			}
+		}
+
+	}
+
+	mat-progress-bar {
+		.mat-progress-bar-buffer {
+			background-color: white;
+		}
+	}
+
+	mat-card {
+		padding: 0;
+		mat-card-content {
+			padding: 1rem;
+			mat-form-field {
+				margin: 1rem 0;
+				&:first-of-type {
+					margin-top: 0;
+				}
+			}
+			button {
+				margin-bottom: 1rem;
+				&:first-of-type {
+					margin-top: 1rem;
+				}
+			}
+		}
+	}
+}
+

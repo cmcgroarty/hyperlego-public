@@ -2,7 +2,7 @@ import { Component, EventEmitter, HostBinding, Input, OnInit, Output, ViewEncaps
 import { Observable } from 'rxjs/internal/Observable';
 import { TrackObjectFull } from 'spotify_api';
 import { LayoutService } from '../../core/services/layout.service';
-import { ScreenSize } from '../../shared/model/screen-size.model';
+import { ScreenSize } from '../../shared/model/screen-size.enum';
 
 @Component( {
 	selector: 'hyper-track-list',

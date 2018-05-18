@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './core/services/auth.service';
 import { SailsSocketService } from './core/services/sails-socket.service';
 
 @Component( {
@@ -8,7 +9,7 @@ import { SailsSocketService } from './core/services/sails-socket.service';
 } )
 export class AppComponent implements OnInit {
 
-	constructor(private sailsSocketService: SailsSocketService) {
+	constructor( private sailsSocketService: SailsSocketService, private authService: AuthService ) {
 	}
 
 	ngOnInit() {

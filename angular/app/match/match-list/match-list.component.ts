@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatchStatus } from '../../shared/model/match-status.model';
+import { MatchStatus } from '../../shared/model/match-status.enum';
 import { Match } from '../../shared/model/match.model';
 
 @Component( {

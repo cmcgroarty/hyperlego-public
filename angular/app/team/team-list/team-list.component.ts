@@ -1,7 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { Division } from '../../shared/model/division.model';
+import { Division } from '../../shared/model/division.enum';
 import { Team } from '../../shared/model/team.model';
 import { ByDivisionPipe } from '../../shared/pipes/by-division.pipe';
 

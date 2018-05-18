@@ -1,9 +1,9 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { Division } from '../../shared/model/division.model';
+import { Division } from '../../shared/model/division.enum';
 import { Score } from '../../shared/model/score.model';
-import { Table } from '../../shared/model/table.model';
+import { Table } from '../../shared/model/table.enum';
 
 @Component( {
 	selector: 'hyper-score-list',
