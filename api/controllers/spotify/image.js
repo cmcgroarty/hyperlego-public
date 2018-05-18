@@ -19,11 +19,11 @@ module.exports = async function image(req, res) {
 	var imageDir = path.resolve('.image');
 	fs.stat(imageDir + '/' + imageReq, function (err, stat) {
 		if (err == null) {
-			sails.log.debug(imageReq+' exists, sending image from server');
+			sails.log.verbose(imageReq+' exists, sending image from server');
 			var image = fs.createReadStream(imageDir + '/' + imageReq);
 			image.pipe(res);
 		} else if (err.code == 'ENOENT') {
-			sails.log.debug(imageReq+' doesnt exist, getting image from spotify');
+			sails.log.verbose(imageReq+' doesnt exist, getting image from spotify');
 			var spotifyImage = sails.https.get({
 				host: 'i.scdn.co',
 				path: '/image/' + imageReq

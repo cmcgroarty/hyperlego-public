@@ -2,10 +2,12 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { ElementRef, Injectable, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { GuardsCheckEnd, NavigationStart, Router } from '@angular/router';
-import { Subject } from 'rxjs/index';
+import { BehaviorSubject, Subject } from 'rxjs/index';
 import { filter, takeUntil } from 'rxjs/operators';
+import { navAdmin, navPublic } from '../../../../.config/mocks/navs';
 import { NavItem } from '../../shared/model/nav-item.model';
 import { NavType } from '../../shared/model/nav-type.model';
+import { ScreenSize } from '../../shared/model/screen-size.model';
 
 @Injectable( {
 	providedIn: 'root'
@@ -17,6 +19,8 @@ export class LayoutService implements OnDestroy {
 	private navAdmin: NavItem[];
 	private navPublic: NavItem[];
 	private unsubscribe$ = new Subject<void>();
+	private _screenSize$: BehaviorSubject<ScreenSize> = new BehaviorSubject<ScreenSize>( undefined );
+	public readonly screenSize$ = this._screenSize$.asObservable();
 
 	constructor( private titleService: Title, private router: Router, private breakpointObserver: BreakpointObserver ) {
 		this.globalTitle = 'HYPER Lego | powered by iDesign Consulting';
@@ -25,6 +29,12 @@ export class LayoutService implements OnDestroy {
 		this.setNav( NavType.PUBLIC );
 		this.routerEventSubscribers();
 		this.breakpointSubscriber();
+	}
+
+	private _screenSize: ScreenSize;
+
+	get screenSize(): ScreenSize {
+		return this._screenSize;
 	}
 
 	private _isHandset: boolean;
@@ -114,70 +124,8 @@ export class LayoutService implements OnDestroy {
 	}
 
 	initializeNavs() {
-		this.navPublic = [
-			{
-				order: 0,
-				route: '/',
-				title: 'Home',
-				icon: 'home'
-			},
-			{
-				order: 10,
-				route: '/game',
-				title: 'This Year\'s Challenge',
-				icon: 'toys'
-			},
-			{
-				order: 20,
-				route: '/team',
-				title: 'Teams',
-				icon: 'group'
-			},
-			{
-				order: 30,
-				route: '/match',
-				title: 'Schedule',
-				icon: 'view_agenda'
-			},
-			{
-				order: 40,
-				route: '/score',
-				title: 'Scores',
-				icon: 'subtitles'
-			},
-		];
-		this.navAdmin = [
-			{
-				order: 0,
-				route: '/admin/dashboard',
-				title: 'Dashboard',
-				icon: 'dashboard'
-			},
-			{
-				order: 10,
-				route: '/admin/team',
-				title: 'Teams',
-				icon: 'group'
-			},
-			{
-				order: 30,
-				route: '/admin/score',
-				title: 'Scores',
-				icon: 'subtitles'
-			},
-			{
-				order: 50,
-				route: '/admin/timer/display',
-				title: 'Timer Display',
-				icon: 'access_time'
-			},
-			{
-				order: 51,
-				route: '/admin/timer/control',
-				title: 'Timer Control',
-				icon: 'timer'
-			},
-		];
+		this.navPublic = navPublic;
+		this.navAdmin = navAdmin;
 	}
 
 	setDefaultLayout() {
@@ -185,6 +133,20 @@ export class LayoutService implements OnDestroy {
 		this.forceSidenavClose = false;
 		this.hideToolbar = false;
 		this.setTitle( '' );
+	}
+
+	decideScreenSize() {
+		if ( this.breakpointObserver.isMatched( Breakpoints.XSmall ) ) {
+			this._screenSize$.next( ScreenSize.XSMALL );
+		} else if ( this.breakpointObserver.isMatched( Breakpoints.Small ) ) {
+			this._screenSize$.next( ScreenSize.SMALL );
+		} else if ( this.breakpointObserver.isMatched( Breakpoints.Medium ) ) {
+			this._screenSize$.next( ScreenSize.MEDIUM );
+		} else if ( this.breakpointObserver.isMatched( Breakpoints.Large ) ) {
+			this._screenSize$.next( ScreenSize.LARGE );
+		} else if ( this.breakpointObserver.isMatched( Breakpoints.XLarge ) ) {
+			this._screenSize$.next( ScreenSize.XLARGE );
+		}
 	}
 
 
@@ -215,5 +177,17 @@ export class LayoutService implements OnDestroy {
 			.subscribe( breakpoint => {
 				this._isHandset = breakpoint.matches;
 			} );
+		this.breakpointObserver.observe( [
+			Breakpoints.Handset,
+			Breakpoints.Tablet,
+			Breakpoints.Web,
+			'(orientation: portrait)',
+			'(orientation: landscape)',
+		] )
+			.pipe( takeUntil( this.unsubscribe$ ) )
+			.subscribe( () => {
+				this.decideScreenSize();
+			} );
+
 	}
 }

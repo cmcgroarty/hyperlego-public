@@ -6,6 +6,10 @@
 	flex-direction: column;
 }
 
+.fit-parent {
+	max-width:100%;
+}
+
 button {
 	&.success {
 		$success-hue: 700;

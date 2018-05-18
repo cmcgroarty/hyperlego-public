@@ -28,6 +28,7 @@
 		"@sailshq/connect-redis": "^3.2.1",
 		"@sailshq/lodash": "^3.10.3",
 		"@sailshq/socket.io-redis": "^5.2.0",
+		"@types/uuid": "^3.4.3",
 		"angular2-sails": "^0.2.8",
 		"async": "2.0.1",
 		"core-js": "^2.5.6",

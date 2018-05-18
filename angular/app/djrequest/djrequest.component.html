@@ -1,0 +1,6 @@
+<mat-toolbar>
+	<hyper-track-search (lookupTerm)="lookupTerm($event)"></hyper-track-search>
+</mat-toolbar>
+<div class="content-container">
+	<hyper-track-list [tracks$]="spotifyStoreService.tracks$" (selectTrack)="selectTrack($event)"></hyper-track-list>
+</div>

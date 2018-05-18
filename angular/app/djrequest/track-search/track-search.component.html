@@ -1,0 +1,6 @@
+<mat-form-field style="padding-top:2.2rem; padding-bottom:1rem;">
+	<input matInput type="text" placeholder="Search for a Track, Artist, Album..." [formControl]="term" autocomplete="off" />
+	<button mat-button *ngIf="term.value" matSuffix mat-icon-button aria-label="Clear" (click)="term.setValue('')">
+		<mat-icon>close</mat-icon>
+	</button>
+</mat-form-field>
