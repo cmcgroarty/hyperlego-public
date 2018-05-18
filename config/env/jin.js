@@ -34,3 +34,4 @@ module.exports = {
 		name: hyperconfig.cookie[ name ].sails_session.key,
 		secret: hyperconfig.cookie[ name ].sails_session.secret
 	}
+};
