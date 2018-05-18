@@ -4,15 +4,18 @@ import {
 	MAT_SNACK_BAR_DEFAULT_OPTIONS,
 	MatButtonModule,
 	MatCardModule,
+	MatChipsModule,
+	MatGridListModule,
 	MatIconModule,
+	MatInputModule,
 	MatListModule,
 	MatMenuModule,
+	MatProgressBarModule,
+	MatProgressSpinnerModule,
 	MatSidenavModule,
 	MatSnackBarModule,
-	MatProgressSpinnerModule,
 	MatTabsModule,
-	MatToolbarModule,
-	SimpleSnackBar
+	MatToolbarModule
 } from '@angular/material';
 
 @NgModule( {
@@ -26,7 +29,11 @@ import {
 		MatSnackBarModule,
 		MatTabsModule,
 		MatListModule,
-		MatProgressSpinnerModule
+		MatProgressSpinnerModule,
+		MatProgressBarModule,
+		MatInputModule,
+		MatGridListModule,
+		MatChipsModule
 	],
 	exports: [
 		MatButtonModule,
@@ -38,7 +45,11 @@ import {
 		MatSnackBarModule,
 		MatTabsModule,
 		MatListModule,
-		MatProgressSpinnerModule
+		MatProgressSpinnerModule,
+		MatProgressBarModule,
+		MatInputModule,
+		MatGridListModule,
+		MatChipsModule
 	],
 	providers: [ {
 		provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
