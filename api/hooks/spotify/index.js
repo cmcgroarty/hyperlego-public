@@ -30,8 +30,8 @@ module.exports = function defineSpotifyHook( sails ) {
 						} );
 						sails.spotifyWebApi.clientCredentialsGrant().then(
 							function ( data ) {
-								sails.log.info( 'The access token expires in ' + data.body[ 'expires_in' ] );
-								sails.log.info( 'The access token is ' + data.body[ 'access_token' ] );
+								sails.log.verbose( 'The access token expires in ' + data.body[ 'expires_in' ] );
+								sails.log.verbose( 'The access token is ' + data.body[ 'access_token' ] );
 
 								// Save the access token so that it's used in future calls
 								sails.spotifyWebApi.setAccessToken( data.body[ 'access_token' ] );
