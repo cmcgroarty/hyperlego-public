@@ -24,7 +24,7 @@
 			</button>
 			<button mat-raised-button color="accent" fxFlexFill (click)="timerStoreService.resetTimer()"
 					*ngIf="(timer.status === timerStatus.STOPPED) || (timer.time === 0)"
-					[disabled]="(waitingNextMatch && timer.time === 0) || !sailsSocketService.subscribed">Reset Timer
+					[disabled]="!sailsSocketService.subscribed">Reset Timer
 			</button>
 			<button mat-raised-button color="primary" fxFlexFill (click)="getNextMatch()"
 					[disabled]="!waitingNextMatch || !sailsSocketService.subscribed">Load Next Match
