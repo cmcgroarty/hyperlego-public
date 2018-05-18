@@ -37,10 +37,11 @@ export class SubmitRequestComponent implements OnInit, OnDestroy {
 		this.layoutService.backButton = true;
 		this.layoutService.setTitle( 'Request Song' );
 		this.djrequestStoreService.selectedTrack$.pipe( takeUntil( this.unsubscribe$ ) ).subscribe( track => {
-			this.selectedTrack = track;
-			if ( this.selectedTrack.explicit ) {
-				this.name.markAsTouched();
-
+			if ( track ) {
+				this.selectedTrack = track;
+				if ( this.selectedTrack.explicit ) {
+					this.name.markAsTouched();
+				}
 			}
 		} );
 	}
@@ -63,9 +64,19 @@ export class SubmitRequestComponent implements OnInit, OnDestroy {
 			this.djrequestStoreService.setSelectedTrack( undefined );
 			this.router.navigate( [ 'request' ] );
 
-		}, ( error ) => {
-			console.log( error );
-			this.snackBar.open( 'Error: Chris will add descriptive messages later' );
+		}, ( e ) => {
+			let message;
+			switch ( e.status ) {
+				case 400:
+					message = e.error.message;
+					break;
+				case 429:
+					message = e.error.message;
+					break;
+				default:
+					message = 'Error Submitting Request. Try Again.';
+			}
+			this.snackBar.open( message );
 		} );
 	}
 

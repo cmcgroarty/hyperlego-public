@@ -71,7 +71,7 @@ module.exports.routes = {
 	/**
 	 *    DJ REQUEST
 	 */
-	'POST /api/djrequest': 'request/create',
+	'POST /api/djrequest': 'djrequest/rate-limit-create',
 
 	/**
 	 *    AUTH
