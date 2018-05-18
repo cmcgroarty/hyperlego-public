@@ -43,6 +43,10 @@ const routes: Routes = [
 		loadChildren: '../score/score.module#ScoreModule'
 	},
 	{
+		path: 'request',
+		loadChildren: '../djrequest/djrequest.module#DJRequestModule'
+	},
+	{
 		path: '**',
 		component: NotFoundComponent
 	}
