@@ -4,7 +4,7 @@
  * @description :: Server-side logic for helping manage Timers
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Services
  */
-const defaultTime = 10;
+const defaultTime = 150;
 const status = {ready: 'ready', running: 'running', stopped: 'stopped'};
 module.exports = {
 	room: 'hyperlegoTimer',

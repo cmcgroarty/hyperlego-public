@@ -34,7 +34,7 @@ export class ScoreBackendService {
 	}
 
 	updateScore( score: Score ): Observable<Score> {
-		return this.http.put( this.api.url + '/score/' + score.id, score );
+		return this.http.patch( this.api.url + '/score/' + score.id, score );
 	}
 
 	deleteScore( id: number ): Observable<Object> {

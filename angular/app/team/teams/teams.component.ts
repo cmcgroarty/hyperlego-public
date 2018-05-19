@@ -16,7 +16,8 @@ export class TeamsComponent implements OnInit, OnDestroy {
 	selectedTab = 0;
 	private unsubscribe$ = new Subject<void>();
 
-	constructor( private layoutService: LayoutService, public todoStore: TeamStoreService ) {
+	constructor( private layoutService: LayoutService, public teamStoreService: TeamStoreService ) {
+		this.teamStoreService.loadInitialData();
 	}
 
 	ngOnInit() {

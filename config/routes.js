@@ -53,6 +53,7 @@ module.exports.routes = {
 	 *    SCORE
 	 */
 	'GET /api/score/not/null': 'score/get-not-null-played',
+	'GET /api/score/played':'score/get-scores-played',
 
 	/**
 	 *    TIMER

@@ -1,0 +1,270 @@
+<mat-toolbar color="accent"><mat-toolbar-row><div fxFlex>SCORE: {{calculate()}}</div><div fxFlex="grow"></div><div fxFlex><button mat-icon-button (click)="updateScore()"><mat-icon>save</mat-icon></button></div></mat-toolbar-row></mat-toolbar>
+<div class="content-container">
+
+	<div fxLayout="column" fxFlex="100" fxFlex.gt-md="80" fxLayoutGap="1rem">
+		<mat-card>
+			<mat-card-title>1 &mdash; Reverse Engineering</mat-card-title>
+			<mat-card-content>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_engineering_basket">Basket in Base</label>
+					<mat-radio-group [(ngModel)]="score.score_engineering_basket" id="score_engineering_basket">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_engineering_model">Your model is in Base, and is "identical"</label>
+					<mat-radio-group [(ngModel)]="score.score_engineering_model" id="score_engineering_model">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</mat-card-content>
+		</mat-card>
+		<mat-card>
+			<mat-card-title>2 &mdash; Opening Doors</mat-card-title>
+			<mat-card-content>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_openingdoors_dooropened">Door opened by pushing handle down</label>
+					<mat-radio-group [(ngModel)]="score.score_openingdoors_dooropened" id="score_openingdoors_dooropened">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</mat-card-content>
+		</mat-card>
+		<mat-card>
+		<mat-card-title>3 &mdash; Project-Based Learning</mat-card-title>
+		<mat-card-content>
+			<div fxLayout="row" fxLayoutAlign="space-between">
+				<label for="score_projectlearning_loops">Loops on scale</label>
+				<mat-radio-group [(ngModel)]="score.score_projectlearning_loops" id="score_projectlearning_loops">
+					<mat-radio-button [value]="0">0</mat-radio-button>
+					<mat-radio-button [value]="1">1</mat-radio-button>
+					<mat-radio-button [value]="2">2</mat-radio-button>
+					<mat-radio-button [value]="3">3</mat-radio-button>
+					<mat-radio-button [value]="4">4</mat-radio-button>
+					<mat-radio-button [value]="5">5</mat-radio-button>
+					<mat-radio-button [value]="6">6</mat-radio-button>
+					<mat-radio-button [value]="7">7</mat-radio-button>
+					<mat-radio-button [value]="8">8</mat-radio-button>
+				</mat-radio-group>
+			</div>
+		</mat-card-content>
+		</mat-card>
+		<mat-card>
+			<mat-card-title>4 &mdash; Apprenticeship</mat-card-title>
+			<mat-card-content>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_apprenticeship_modelpresented">Model presented to Referee</label>
+					<mat-radio-group [(ngModel)]="score.score_apprenticeship_modelpresented" id="score_apprenticeship_modelpresented">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_apprenticeship_touchingcircle">Touching circle, not in Base, people Bound</label>
+					<mat-radio-group [(ngModel)]="score.score_apprenticeship_touchingcircle" id="score_apprenticeship_touchingcircle">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</mat-card-content>
+		</mat-card>
+		<mat-card>
+			<mat-card-title>5 &mdash; Search Engine</mat-card-title>
+			<mat-card-content>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_searchengine_wheelspun">Only Slider caused wheel to spin 1+ times</label>
+					<mat-radio-group [(ngModel)]="score.score_searchengine_wheelspun" id="score_searchengine_wheelspun">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_searchengine_loopremoved">Only correct loop removed</label>
+					<mat-radio-group [(ngModel)]="score.score_searchengine_loopremoved" id="score_searchengine_loopremoved">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</mat-card-content>
+		</mat-card>
+		<mat-card>
+			<mat-card-title>6 &mdash; Sports</mat-card-title>
+			<mat-card-content>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_sports_shottaken">Ball shot from east/north of "Shot Lines" toward Net</label>
+					<mat-radio-group [(ngModel)]="score.score_sports_shottaken" id="score_sports_shottaken">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_sports_goal">Ball touching mat in Net at end of match</label>
+					<mat-radio-group [(ngModel)]="score.score_sports_goal" id="score_sports_goal">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</mat-card-content>
+		</mat-card>
+		<mat-card>
+			<mat-card-title>7 &mdash; Robotics Competition</mat-card-title>
+			<mat-card-content>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_robotics_insertinstalled">Only Robotics Insert installed</label>
+					<mat-radio-group [(ngModel)]="score.score_robotics_insertinstalled" id="score_robotics_insertinstalled">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_robotics_loopnottouching">Loop no longer touching model*</label>
+					<mat-radio-group [(ngModel)]="score.score_robotics_loopnottouching" id="score_robotics_loopnottouching">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</mat-card-content>
+		</mat-card>
+		<mat-card>
+			<mat-card-title>8 &mdash; Using the Right Senses</mat-card-title>
+			<mat-card-content>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_rightsenses_loopnottouching">Loop no longer touching model*</label>
+					<mat-radio-group [(ngModel)]="score.score_rightsenses_loopnottouching" id="score_rightsenses_loopnottouching">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</mat-card-content>
+		</mat-card>
+		<mat-card>
+			<mat-card-title>9 &mdash; Remote Communication/Learning</mat-card-title>
+			<mat-card-content>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_remotecomm_sliderpulled">Referee saw robot pull slider west</label>
+					<mat-radio-group [(ngModel)]="score.score_remotecomm_sliderpulled" id="score_remotecomm_sliderpulled">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</mat-card-content>
+		</mat-card>
+		<mat-card>
+			<mat-card-title>10 &mdash; Thinking Outside the Box</mat-card-title>
+			<mat-card-content>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_outsidethebox_model">Idea model not touching Box, Box never in Base</label>
+					<mat-radio-group [(ngModel)]="score.score_outsidethebox_model" id="score_outsidethebox_model">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_outsidethebox_bulb">Bulb faces UP</label>
+					<mat-radio-group [(ngModel)]="score.score_outsidethebox_bulb" id="score_outsidethebox_bulb">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</mat-card-content>
+		</mat-card>
+		<mat-card>
+			<mat-card-title>11 &mdash; Community Learning</mat-card-title>
+			<mat-card-content>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_community_loopnottouching">Loop no longer touching model</label>
+					<mat-radio-group [(ngModel)]="score.score_community_loopnottouching" id="score_community_loopnottouching">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</mat-card-content>
+		</mat-card>
+		<mat-card>
+			<mat-card-title>12 &mdash; Cloud Access</mat-card-title>
+			<mat-card-content>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_cloud_sdcardup">SD card is UP due to inserted "key"</label>
+					<mat-radio-group [(ngModel)]="score.score_cloud_sdcardup" id="score_cloud_sdcardup">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</mat-card-content>
+		</mat-card>
+		<mat-card>
+			<mat-card-title>13 &mdash; Engagement</mat-card-title>
+			<mat-card-content>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_engagement_yellowmoved">Yellow section moved south</label>
+					<mat-radio-group [(ngModel)]="score.score_engagement_yellowmoved" id="score_engagement_yellowmoved">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_engagement_dialcolor">Dial major marker Color</label>
+					<mat-radio-group [(ngModel)]="score.score_engagement_dialcolor" id="score_engagement_dialcolor">
+						<mat-radio-button [value]="0">N/A</mat-radio-button>
+						<mat-radio-button [value]="10">10%</mat-radio-button>
+						<mat-radio-button [value]="16">16%</mat-radio-button>
+						<mat-radio-button [value]="22">22%</mat-radio-button>
+						<mat-radio-button [value]="28">28%</mat-radio-button>
+						<mat-radio-button [value]="34">34%</mat-radio-button>
+						<mat-radio-button [value]="40">40%</mat-radio-button>
+						<mat-radio-button [value]="46">46%</mat-radio-button>
+						<mat-radio-button [value]="52">52%</mat-radio-button>
+						<mat-radio-button [value]="58">58%</mat-radio-button>
+					</mat-radio-group>
+				</div>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_engagement_ticks">Ticks past major marker</label>
+					<mat-radio-group [(ngModel)]="score.score_engagement_ticks" id="score_engagement_ticks">
+						<mat-radio-button [value]="0">N/A</mat-radio-button>
+						<mat-radio-button [value]="0">0</mat-radio-button>
+						<mat-radio-button [value]="1">1</mat-radio-button>
+						<mat-radio-button [value]="2">2</mat-radio-button>
+						<mat-radio-button [value]="3">3</mat-radio-button>
+						<mat-radio-button [value]="4">4</mat-radio-button>
+						<mat-radio-button [value]="5">5</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</mat-card-content>
+		</mat-card>
+		<mat-card>
+			<mat-card-title>14 &mdash; Adapting to Changing Conditions</mat-card-title>
+			<mat-card-content>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_adapting_modelrotated">Model rotated 90-ish degrees CCW</label>
+					<mat-radio-group [(ngModel)]="score.score_adapting_modelrotated" id="score_adapting_modelrotated">
+						<mat-radio-button [value]="true">Yes</mat-radio-button>
+						<mat-radio-button [value]="false">No</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</mat-card-content>
+		</mat-card>
+		<mat-card>
+			<mat-card-title>15 &mdash; Penalties</mat-card-title>
+			<mat-card-content>
+				<div fxLayout="row" fxLayoutAlign="space-between">
+					<label for="score_penalties_junk">Robot, Sprawl, Junk Penalties</label>
+					<mat-radio-group [(ngModel)]="score.score_penalties_junk" id="score_penalties_junk">
+						<mat-radio-button [value]="0">0</mat-radio-button>
+						<mat-radio-button [value]="1">1</mat-radio-button>
+						<mat-radio-button [value]="2">2</mat-radio-button>
+						<mat-radio-button [value]="3">3</mat-radio-button>
+						<mat-radio-button [value]="4">4</mat-radio-button>
+						<mat-radio-button [value]="5">5</mat-radio-button>
+						<mat-radio-button [value]="6">6</mat-radio-button>
+						<mat-radio-button [value]="7">7</mat-radio-button>
+						<mat-radio-button [value]="8">8</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</mat-card-content>
+		</mat-card>
+
+	</div>
+</div>

@@ -41,6 +41,6 @@ export class TrackListComponent implements OnInit {
 					this.numColumns = 2;
 					break;
 			}
-		})
+		});
 	}
 }

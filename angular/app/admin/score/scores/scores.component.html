@@ -1,0 +1,5 @@
+<mat-tab-group color="accent" [selectedIndex]="selectedTab" (selectedTabChange)="onSelect($event)">
+	<mat-tab label="To Score"></mat-tab>
+	<mat-tab label="Scored"></mat-tab>
+</mat-tab-group>
+<hyper-admin-score-list [scores]="filterScores()"></hyper-admin-score-list>

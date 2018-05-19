@@ -38,7 +38,7 @@ export class MatchBackendService {
 	}
 
 	updateMatch( match: Match ): Observable<Match> {
-		return this.http.put( this.api.url + '/match/' + match.id, match );
+		return this.http.patch( this.api.url + '/match/' + match.id, match );
 	}
 
 	deleteMatch( id: number ): Observable<Object> {

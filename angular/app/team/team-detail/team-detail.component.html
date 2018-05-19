@@ -1,5 +1,17 @@
-<div fxFlexFill fxLayout="column">
-	<div fxFlex="25" [ngStyle]="{'background-color': team?.school.color}">
-		<div class="mat-display-3">#{{team?.id}}</div>
-	</div>
+<div class="content-container" fxLayout="column" fxFlex="100" fxFlex.gt-md="60" fxFlex.gt-lg="40">
+	<mat-card>
+		<mat-card-title>#{{team?.id | number:'2.0-0'}} {{team?.name}}</mat-card-title>
+		<mat-card-subtitle>{{team?.school.name}} {{team?.school.level}}</mat-card-subtitle>
+		<mat-card-content>
+			<mat-list>
+				<div *ngFor="let score of team?.scores"><mat-list-item *ngIf="score.total_score !== null">#{{score.match.id | number:'2.0-0'}}.{{score.table_name}} &mdash; {{score.total_score}}pts</mat-list-item></div>
+			</mat-list>
+		</mat-card-content>
+	</mat-card>
+	<mat-card *ngIf="!!team?.teamPhoto && team?.teamPhoto != 'empty.jpg'">
+		<img [src]="team?.teamPhoto" mat-card-image/>
+	</mat-card>
+	<mat-card *ngIf="!!team?.robotPhoto && team?.robotPhoto != 'empty.jpg'">
+		<img [src]="team?.robotPhoto" mat-card-image/>
+	</mat-card>
 </div>

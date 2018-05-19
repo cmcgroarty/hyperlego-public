@@ -2,6 +2,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Division } from '../../shared/model/division.enum';
+import { MatchStatus } from '../../shared/model/match-status.enum';
 import { Score } from '../../shared/model/score.model';
 import { Table } from '../../shared/model/table.enum';
 
@@ -23,9 +24,10 @@ import { Table } from '../../shared/model/table.enum';
 	],
 } )
 export class ScoreListComponent implements OnInit {
-	@Input() scores: Observable<Score[]>;
+	@Input() scores: Score[];
 	divisions = Division;
 	table = Table;
+	matchStatus = MatchStatus;
 
 	constructor() {
 	}

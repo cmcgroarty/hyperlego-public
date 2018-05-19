@@ -39,7 +39,7 @@ module.exports.policies = {
 	},
 	ScoreController: {
 		getNotNullPlayed: [ true ],
-		update: [ 'is-logged-in' ]
+		update: [ true ]
 	},
 	'timer/subscribe': [ true ],
 	'timer/start': [ true ],

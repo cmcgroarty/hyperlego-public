@@ -34,8 +34,6 @@ export class DisplayComponent implements OnInit, OnDestroy {
 		private matchBackendService: MatchBackendService,
 		private matchStoreService: MatchStoreService
 	) {
-		this.layoutService.setTitle( 'Timer Display' );
-		this.layoutService.forceSidenavClose = true;
 		this.timer = {};
 
 		this.charge = new Howl( { src: [ 'assets/sounds/CHARGE.wav' ], html5: false } );
@@ -47,6 +45,8 @@ export class DisplayComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
+		this.layoutService.setTitle( 'Timer Display' );
+		this.layoutService.forceSidenavClose = true;
 		this.subscribe();
 		this.matchStoreService.getCurrentMatch();
 	}

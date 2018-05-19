@@ -19,6 +19,11 @@ module.exports = async function getNotNullPlayed( req, res ) {
 		nonNullScores = nonNullScores.filter( score => {
 			return score.match.status === 'played';
 		} );
+
+		if(req.isSocket && notNullScores.length > 0){
+			Score.subscribe(req, nonNullScores.reduce((score) => score.id));
+		}
+
 		return res.ok( nonNullScores );
 	} catch ( e ) {
 		return res.negotiate( e );

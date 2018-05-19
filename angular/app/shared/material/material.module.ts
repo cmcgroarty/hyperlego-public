@@ -15,7 +15,8 @@ import {
 	MatSidenavModule,
 	MatSnackBarModule,
 	MatTabsModule,
-	MatToolbarModule
+	MatToolbarModule,
+	MatRadioModule
 } from '@angular/material';
 
 @NgModule( {
@@ -33,7 +34,8 @@ import {
 		MatProgressBarModule,
 		MatInputModule,
 		MatGridListModule,
-		MatChipsModule
+		MatChipsModule,
+		MatRadioModule
 	],
 	exports: [
 		MatButtonModule,
@@ -49,7 +51,8 @@ import {
 		MatProgressBarModule,
 		MatInputModule,
 		MatGridListModule,
-		MatChipsModule
+		MatChipsModule,
+		MatRadioModule
 	],
 	providers: [ {
 		provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,

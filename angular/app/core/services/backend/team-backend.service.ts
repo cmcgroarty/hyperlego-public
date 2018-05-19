@@ -26,7 +26,7 @@ export class TeamBackendService {
 	}
 
 	updateTeam( team: Team ): Observable<Team> {
-		return this.http.put( this.api.url + '/team/' + team.id, team );
+		return this.http.patch( this.api.url + '/team/' + team.id, team );
 	}
 
 	deleteTeam( id: number ): Observable<Object> {

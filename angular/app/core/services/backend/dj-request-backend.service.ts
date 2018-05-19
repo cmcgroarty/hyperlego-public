@@ -13,11 +13,11 @@ export class DJRequestBackendService {
 	}
 
 	getAllRequests(): Observable<DJRequest[]> {
-		return this.http.get<DJRequest[]>( this.api.url + '/djrequest' );
+		return this.http.get<DJRequest[]>( this.api.url + '/request' );
 	}
 
 	getRequest( id: number ): Observable<DJRequest> {
-		return this.http.get<DJRequest>( this.api.url + '/djrequest/' + id );
+		return this.http.get<DJRequest>( this.api.url + '/request/' + id );
 	}
 
 	createRequest( request: DJRequest ): Observable<DJRequest> {
@@ -25,10 +25,10 @@ export class DJRequestBackendService {
 	}
 
 	updateRequest( request: DJRequest ): Observable<DJRequest> {
-		return this.http.put( this.api.url + '/djrequest/' + request.id, request );
+		return this.http.patch( this.api.url + '/request/' + request.id, request );
 	}
 
 	deleteRequest( id: number ): Observable<Object> {
-		return this.http.delete( this.api.url + '/djrequest/' + id );
+		return this.http.delete( this.api.url + '/request/' + id );
 	}
 }

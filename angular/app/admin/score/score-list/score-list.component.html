@@ -1,0 +1,21 @@
+<mat-list class="hyper-list">
+	<mat-list-item *ngIf="scores?.length < 1"><span class="mat-subheading-2">No Scores to Display</span>
+		<mat-divider></mat-divider>
+	</mat-list-item>
+	<mat-list-item *ngFor="let score of scores" [routerLink]="['edit', score.id]">
+		<div fxLayout="row" fxFlexFill fxLayoutGap="2rem">
+			<div fxFlex="noshrink" fxFlex.gt-md="10" fxLayout="row" fxLayoutAlign="center center">
+				<span class="mat-title">{{score.match.id | number:'2.0-0'}}.{{table[score.table_name]}}</span>
+			</div>
+			<div fxFlex="noshrink" fxFlex.gt-md="10" fxLayout="row" fxLayoutAlign="center center">
+				<span class="mat-subheading-2" *ngIf="score.total_score!==null">{{score.total_score}}pts</span>
+			</div>
+			<div class="team-info" fxFlex="grow" fxLayout="column" fxLayoutAlign="center start">
+				<div class="mat-subheading-2">{{score.team.name}}</div>
+				<div class="mat-body-1">{{score.team.school.name}} {{score.team.school.level}}</div>
+				<div class="mat-caption">#{{score.team.id}} &ndash; {{divisions[score.team.division]}}</div>
+			</div>
+		</div>
+		<mat-divider></mat-divider>
+	</mat-list-item>
+</mat-list>

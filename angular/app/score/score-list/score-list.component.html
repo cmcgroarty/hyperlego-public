@@ -8,7 +8,7 @@
 				<span class="mat-title">{{score.match.id | number:'2.0-0'}}.{{table[score.table_name]}}</span>
 			</div>
 			<div fxFlex="noshrink" fxFlex.gt-md="10" fxLayout="row" fxLayoutAlign="center center">
-				<span class="mat-subheading-2">{{score.total_score}}pts</span>
+				<span class="mat-subheading-2" *ngIf="score.total_score!==null">{{score.total_score}}pts</span>
 			</div>
 			<div class="team-info" fxFlex="grow" fxLayout="column" fxLayoutAlign="center start">
 				<div class="mat-subheading-2">{{score.team.name}}</div>

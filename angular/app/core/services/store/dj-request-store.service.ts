@@ -17,7 +17,14 @@ export class DJRequestStoreService {
 	public readonly selectedTrack$ = this._selectedTrack$.asObservable();
 
 	constructor( private djrequestBackendService: DJRequestBackendService ) {
+		this.loadInitialData();
+	}
 
+	loadInitialData() {
+		this.djrequestBackendService.getAllRequests().subscribe( requests => {
+			console.log(requests);
+			this._requests$.next( requests );
+		} );
 	}
 
 	setSelectedTrack( track: TrackObjectFull ): void {

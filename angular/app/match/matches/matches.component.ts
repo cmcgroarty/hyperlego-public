@@ -30,6 +30,7 @@ export class MatchesComponent implements OnInit, OnDestroy {
 		private scroll: PageScrollService,
 		@Inject( DOCUMENT ) private document: any
 	) {
+		this.matchStore.loadInitialData();
 	}
 
 	ngOnInit() {

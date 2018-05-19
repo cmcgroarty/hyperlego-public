@@ -3,7 +3,6 @@ import { MatTabChangeEvent } from '@angular/material';
 import { combineLatest, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { LayoutService } from '../../core/services/layout.service';
-import { ScoreBackendService } from '../../core/services/backend/score-backend.service';
 import { ScoreStoreService } from '../../core/services/store/score-store.service';
 import { Division } from '../../shared/model/division.enum';
 import { MatchStatus } from '../../shared/model/match-status.enum';
@@ -20,12 +19,13 @@ export class ScoresComponent implements OnInit, OnDestroy {
 	private tabFilter$ = new Subject<string>();
 	private unsubscribe$ = new Subject<void>();
 
-	constructor( private layoutService: LayoutService, private scoreStore: ScoreStoreService ) {
+	constructor( private layoutService: LayoutService, private scoreStoreService: ScoreStoreService ) {
+		this.scoreStoreService.loadInitialData();
 	}
 
 	ngOnInit(): void {
 		this.layoutService.setTitle( 'Scores' );
-		combineLatest( this.scoreStore.scores$, this.tabFilter$ ).pipe( takeUntil( this.unsubscribe$ ) )
+		combineLatest( this.scoreStoreService.scores$, this.tabFilter$ ).pipe( takeUntil( this.unsubscribe$ ) )
 			.subscribe( ( [ scores, tabFilter ] ) => {
 				this.filterTheScores( scores, tabFilter );
 			} );
@@ -40,25 +40,30 @@ export class ScoresComponent implements OnInit, OnDestroy {
 	filterTheScores( scores: Score[], tabFilter: string ): void {
 		switch ( tabFilter ) {
 			case 'Latest':
-				this.filterScores$.next( scores.sort( ( a: Score, b: Score ) => {
+				this.filterScores$.next( this.filterNull(scores).sort( ( a: Score, b: Score ) => {
 					return b.match.id - a.match.id;
 				} ).slice( 0, 4 ) );
 				break;
 			case 'JA':
-				this.filterScores$.next( scores.filter( score => {
-					return Division[score.team.division] === Division.JA;
+				this.filterScores$.next( this.filterNull(scores).filter( score => {
+					return Division[ score.team.division ] === Division.JA;
 				} ) );
 				break;
 			case 'JQA':
-				this.filterScores$.next( scores.filter( score => {
-					return Division[score.team.division] === Division.JQA;
+				this.filterScores$.next( this.filterNull(scores).filter( score => {
+					return Division[ score.team.division ] === Division.JQA;
 				} ) );
 				break;
 			default:
-				this.filterScores$.next( scores );
+				this.filterScores$.next( this.filterNull(scores) );
 				break;
 		}
 
+	}
+
+	filterNull( scores: Score[] ) {
+		return scores.filter( score =>
+			score.total_score !== null && MatchStatus[ score.match.status ] === MatchStatus.PLAYED );
 	}
 
 	onSelect( $event: MatTabChangeEvent ): void {

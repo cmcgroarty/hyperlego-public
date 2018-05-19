@@ -15,5 +15,7 @@ export interface Team {
 	arrived?: Date;
 	numKids?: number;
 	scores?: Score[];
+	teamPhoto?: string;
+	robotPhoto?: string;
 
 }
