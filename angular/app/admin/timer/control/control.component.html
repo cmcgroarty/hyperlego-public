@@ -16,7 +16,7 @@
 			 fxLayoutAlign="space-between" fxLayoutGap="1rem" class="buttons">
 			<button mat-raised-button class="success" fxFlexFill (click)="timerStoreService.startTimer()"
 					*ngIf="timer.status === timerStatus.READY"
-					[disabled]="waitingNextMatch || !sailsSocketService.subscribed">Start Match
+					[disabled]="!currentMatch || !sailsSocketService.subscribed">Start Match
 			</button>
 			<button mat-raised-button color="warn" fxFlexFill (click)="timerStoreService.stopTimer()"
 					*ngIf="(timer.status === timerStatus.RUNNING) && (timer.time > 0)"
