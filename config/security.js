@@ -30,8 +30,9 @@ module.exports.security = {
 
 	cors: {
 		allRoutes: true,
-		allowOrigins: '*',
-		allowCredentials: false,
+		allowOrigins: ['http://d.idesignconsulting.com', 'http://d.idesignconsulting.com:4200', 'http://dev.idesignconsulting.com'],
+		allowCredentials: true,
+		allowAnyOriginWithCredentialsUnsafe: true
 	},
 
 

@@ -47,12 +47,18 @@ export class LoginComponent implements OnInit {
 
 
 		this.route.queryParams.subscribe( params => {
-			this.return = [ params.return ] || [ 'admin', 'dashboard' ];
+			this.return = ( params.return ? [ params.return ] : null );
 		} );
 
-		if ( this.authService.isAuthenticated() ) {
-			this.router.navigate( this.return );
-		}
+		this.route.data.subscribe( data => {
+			console.log(data);
+			if ( data.token ) {
+				this.authService.clearJwtCookie();
+			} else if ( this.authService.isAuthenticated() ) {
+				this.nextRoute();
+			}
+		} );
+
 	}
 
 	buildForm() {
@@ -60,6 +66,10 @@ export class LoginComponent implements OnInit {
 			username: [ '', [ Validators.required, Validators.pattern( '^[a-z0-9_-]{3,25}$' ) ] ],
 			password: [ '', [ Validators.required ] ]
 		} );
+	}
+
+	nextRoute() {
+		this.router.navigate( this.return || [ 'admin', 'dashboard' ] );
 	}
 
 	login() {
@@ -71,7 +81,7 @@ export class LoginComponent implements OnInit {
 				this.loginResponseType = loginAttempt.success ? 'success' : 'warn';
 				if ( loginAttempt.success ) {
 					this.snackBar.open( loginAttempt.message );
-					this.router.navigate( this.return );
+					this.nextRoute();
 				}
 			}
 		} );

@@ -20,8 +20,8 @@ module.exports.policies = {
 	'*': true,
 
 	AuthController: {
-		me: [ true ],
-		login: [ true ],
+		me: [ 'is-logged-in' ],
+		login: [ 'is-not-socket' ],
 		logout: [ true ]
 	},
 	TeamController: {
@@ -31,9 +31,9 @@ module.exports.policies = {
 	MatchController: {
 		find: [ true ],
 		findOne: [ true ],
-		getCurrentMatch: ['is-logged-in'],
-		setNextMatch: ['is-logged-in']
 	},
+	'match/get-current-match':[ true ],
+	'match/set-next-match':[ true ],
 	RequestController: {
 		rateLimitCreate: [ true ]
 	},
@@ -41,12 +41,10 @@ module.exports.policies = {
 		getNotNullPlayed: [ true ],
 		update: [ 'is-logged-in' ]
 	},
-	TimerController: {
-		subscribe: [ 'is-logged-in' ],
-		start: [ true ],
-		stop: [ 'is-logged-in' ],
-		reset: [ 'is-logged-in' ]
-	},
+	'timer/subscribe': [ true ],
+	'timer/start': [ true ],
+	'timer/stop': [ true ],
+	'timer/reset': [ true ],
 	'spotify/search-track': [ true ],
 	'spotify/image': [ true ],
 

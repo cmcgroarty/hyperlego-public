@@ -32,6 +32,7 @@ module.exports = function defineHyperConfigHook( sails ) {
 							+ ( db.port ? ':' + db.port : '' ) + '/' + db.database
 						};
 						sails.config.port = conf.api.port;
+						sails.hyperconfig = conf;
 						done();
 					} else {
 						done();

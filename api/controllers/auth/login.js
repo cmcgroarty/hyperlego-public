@@ -15,6 +15,7 @@ module.exports = {
 
 	exits: {
 		success: {
+			responseType: 'ok'
 		},
 		badCombo: {
 			responseType: 'unauthorized'
@@ -26,7 +27,7 @@ module.exports = {
 
 		const authError = { badCombo: { message: 'Invalid Username/Password Combination' } };
 
-		const authRecord = await Auth.findOne( { username: inputs.username.toLowerCase() } ).populate( 'user' );
+		const authRecord = await Auth.findOne( { username: inputs.username.toLowerCase() } );
 		if ( !authRecord ) {
 			throw authError;
 		}
@@ -35,20 +36,16 @@ module.exports = {
 			return authError;
 		} );
 
-		if ( this.req.isSocket ) {
-			sails.log.warn(
-				'Received `rememberMe: true` from a virtual request, but it was ignored\n' +
-				'because a browser\'s session cookie cannot be reset over sockets.\n' +
-				'Please use a traditional HTTP request instead.'
-			);
-		} else {
-			sails.log.debug('not socket');
-			this.req.session.cookie.maxAge = sails.config.custom.rememberMeCookieMaxAge;
-		}
-		sails.log.debug( 'authrecord: ' + authRecord.user.id );
-		this.req.session.userId = authRecord.user.id;
-		sails.log.debug( 'session.userId: ' + this.req.session.userId );
-		return exits.success( { message: 'Welcome ' + authRecord.user.firstName + '!', me: authRecord } );
+		let userRecord = await User.findOne({id: authRecord.user}).populate('roles');
+		userRecord.auth = authRecord;
+
+		const jwt = await sails.helpers.generateJwt(userRecord);
+		await Jwt.create({token:jwt.token, owner: userRecord.id, uses: []}).fetch();
+
+		const jwtcookie = sails.hyperconfig.cookie.hyperlego_jwt;
+		this.res.cookie(jwtcookie.key, jwt.token, {secure: jwtcookie.secure, httpOnly: jwtcookie.http, path:jwtcookie.path, maxAge: jwt.expiresIn, sameSite: jwtcookie.samesite});
+
+		return exits.success( { token: jwt.token,message: 'Welcome ' + userRecord.firstName + '!', me: authRecord } );
 
 
 

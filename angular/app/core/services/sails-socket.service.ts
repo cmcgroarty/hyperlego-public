@@ -4,6 +4,7 @@ import { SailsService } from 'angular2-sails';
 import { environment } from '../../../environments/environment';
 import { SnackSpinnerComponent } from '../../shared/components/snack-spinner/snack-spinner.component';
 import { APIService } from './api.service';
+import { AuthService } from './auth.service';
 
 @Injectable( {
 	providedIn: 'root'
@@ -13,15 +14,21 @@ export class SailsSocketService {
 	public subscribed = false;
 	private reconnectingSnack;
 
-	constructor( private sailsService: SailsService, private api: APIService, private snackBar: MatSnackBar ) {
+	constructor( private sailsService: SailsService, private api: APIService, private snackBar: MatSnackBar, private authService: AuthService ) {
 		this.sailsService.connect( {
 			url: this.api.socket,
 			transports: [ 'websocket' ],
 			reconnection: false,
-			environment: (environment.production ? 'production' : 'development' )
+			environment: ( environment.production ? 'production' : 'development' )
 		} );
 
 		this.subscribe();
+	}
+
+	public socketErrorHandler( error ) {
+		if ( error.statusCode && error.statusCode === 401 ) {
+			this.authService.intercept401();
+		}
 	}
 
 	private subscribe() {

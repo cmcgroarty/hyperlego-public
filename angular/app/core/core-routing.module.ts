@@ -17,6 +17,11 @@ const routes: Routes = [
 		component: LoginComponent
 	},
 	{
+		path: 'login/token',
+		component: LoginComponent,
+		data: { token: true }
+	},
+	{
 		path: 'about',
 		component: AboutComponent
 	},
@@ -26,8 +31,8 @@ const routes: Routes = [
 	},
 	{
 		path: 'admin',
-		canActivate: [AuthGuard],
-		canActivateChild: [AuthGuard],
+		canActivate: [ AuthGuard ],
+		canActivateChild: [ AuthGuard ],
 		loadChildren: '../admin/admin.module#AdminModule'
 	},
 	{

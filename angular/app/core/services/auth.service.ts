@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
@@ -11,33 +11,48 @@ import { APIService } from './api.service';
 @Injectable( {
 	providedIn: 'root'
 } )
-export class AuthService {
+export class AuthService implements OnInit {
 
+	private readonly loginHttpOptions = {
+		headers: new HttpHeaders( {} ),
+		// credentials: 'include',
+		withCredentials: true
+	};
 	private _me$: BehaviorSubject<any> = new BehaviorSubject<any>( undefined );
 	public readonly me$ = this._me$.asObservable();
-
 	private _loginAttempt$: BehaviorSubject<any> = new BehaviorSubject<any>( { waiting: true } );
 
-	constructor( private http: HttpClient, private api: APIService, private cookieService: CookieService, private router: Router ) {
+	constructor(
+		private http: HttpClient,
+		private api: APIService,
+		private cookieService: CookieService,
+		private router: Router
+	) {
+
+	}
+
+	ngOnInit() {
 		this.http.post<any>( this.api.url + '/auth/me', {} ).subscribe( response => {
-			console.log(response);
+			console.log( response );
 			this._me$.next( response.me );
 		} );
-
 	}
 
 	login( username: string, password: string ): Observable<any> {
 		this.http.post<any>( this.api.url + '/auth/login', {
 			username: username,
 			password: password
-		} ).subscribe( success => {
+		}, this.loginHttpOptions ).subscribe( success => {
 			this._me$.next( success.me );
 			this._loginAttempt$.next( { waiting: false, success: true, message: success.message } );
 		}, error => {
-			let message = '';
+			let message = 'Unknown Error';
 			switch ( error.status ) {
 				case 0:
 					message = 'Unknown Error';
+					break;
+				case 500:
+					message = 'Server Error. Please Try Again.';
 					break;
 				default:
 					message = error.error.message;
@@ -51,6 +66,7 @@ export class AuthService {
 	}
 
 	logout() {
+		this.clearJwtCookie();
 		this.http.get<any>( this.api.url + '/auth/logout' ).subscribe( () => {
 			this.router.navigate( [ 'login' ] );
 			this._me$.next( undefined );
@@ -58,11 +74,19 @@ export class AuthService {
 	}
 
 	isAuthenticated(): boolean {
-		return true;
-		// return !!this._me$.getValue();
+		return !!this._me$.getValue() || !!this.cookieService.get( environment.cookie.hyperlego_jwt.key );
 	}
 
 	isAuthorized( roles: UserRole[] ): boolean {
 		return false;
+	}
+
+	clearJwtCookie() {
+		this.cookieService.remove( environment.cookie.hyperlego_jwt.key );
+	}
+
+	intercept401() {
+		this.clearJwtCookie();
+		this.router.navigate( [ 'login' ] );
 	}
 }

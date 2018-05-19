@@ -33,5 +33,14 @@ module.exports = {
 	session: {
 		name: hyperconfig.cookie[ name ].sails_session.key,
 		secret: hyperconfig.cookie[ name ].sails_session.secret
-	}
+	},
+	security: {
+		cors: {
+			allowOrigins: [
+				'https://lego.hyperonline.org',
+			],
+			allowCredentials: true,
+		},
+
+	},
 };

@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SailsModule, SailsService } from 'angular2-sails';
-import { CookieModule, CookieService } from 'ngx-cookie';
+import { CookieModule } from 'ngx-cookie';
 import { SharedModule } from '../shared/shared.module';
 import { AboutComponent } from './components/about/about.component';
 import { GameComponent } from './components/game/game.component';
@@ -14,6 +14,7 @@ import { NavListComponent } from './components/sidebar/navlist/nav-list.componen
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CoreRoutingModule } from './core-routing.module';
 import { throwIfAlreadyLoaded } from './guards/module-import.guard';
+import { ApiInterceptorService } from './services/api-interceptor.service';
 
 @NgModule( {
 	imports: [
@@ -29,7 +30,14 @@ import { throwIfAlreadyLoaded } from './guards/module-import.guard';
 		RouterModule,
 		SidebarComponent,
 	],
-	providers: [ SailsService ]
+	providers: [
+		SailsService,
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: ApiInterceptorService,
+			multi: true
+		}
+	]
 } )
 export class CoreModule {
 	constructor( @Optional() @SkipSelf() parentModule: CoreModule ) {

@@ -1,7 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { ElementRef, Injectable, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { GuardsCheckEnd, NavigationStart, Router } from '@angular/router';
+import { GuardsCheckEnd, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs/index';
 import { filter, takeUntil } from 'rxjs/operators';
 import { navAdmin, navPublic } from '../../../../.config/mocks/navs';
@@ -151,8 +151,8 @@ export class LayoutService implements OnDestroy {
 
 
 	private routerEventSubscribers() {
-		this.router.events.pipe( filter( event => event instanceof NavigationStart ) )
-			.subscribe( ( event: NavigationStart ) => {
+		this.router.events.pipe( filter( event => event instanceof NavigationEnd ) )
+			.subscribe( ( event: NavigationEnd ) => {
 				this.setDefaultLayout();
 			} );
 		this.router.events.pipe( filter( event => event instanceof GuardsCheckEnd ) )

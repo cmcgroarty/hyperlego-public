@@ -14,6 +14,7 @@ module.exports = {
 		//  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 		token: {
 			type: 'string',
+			columnType: 'TEXT',
 			maxLength: 512
 		},
 		revoked: {

@@ -25,8 +25,8 @@ module.exports = {
 		level: 'info'
 	},
 	session: {
-		name: hyperconfig.cookie[name].sails_session.key,
-		secret: hyperconfig.cookie[name].sails_session.secret,
+		//name: hyperconfig.cookie[name].sails_session.key,
+		//secret: hyperconfig.cookie[name].sails_session.secret,
 
 		cookie: {
 			maxAge: 24 * 60 * 60 * 1000,  // 24 hours
