@@ -65,9 +65,9 @@ export class DisplayComponent implements OnInit, OnDestroy {
 			if ( next.status === TimerStatus.STOPPED && !this.isAudioSuspended() ) {
 				this.foghorn.play();
 			} else if ( next.status === TimerStatus.RUNNING ) {
-				if ( next.time === 30 && !this.isAudioSuspended() ) {
+				if ( this.timer.time !== 30 && next.time === 30 && !this.isAudioSuspended() ) {
 					this.hurry.play();
-				} else if ( next.time === 0 && !this.isAudioSuspended() ) {
+				} else if ( this.timer.time !== 0 && next.time === 0 && !this.isAudioSuspended() ) {
 					this.buzzer.play();
 				}
 			}
