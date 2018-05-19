@@ -56,6 +56,8 @@ export class DisplayComponent implements OnInit, OnDestroy {
 		this.unsubscribe$.complete();
 	}
 
+
+
 	processTimer( next: Timer ) {
 		if ( this.timer.status === TimerStatus.READY ) {
 			if ( next.status === TimerStatus.RUNNING && !this.isAudioSuspended() ) {

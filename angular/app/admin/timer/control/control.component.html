@@ -27,7 +27,7 @@
 					[disabled]="!sailsSocketService.subscribed">Reset Timer
 			</button>
 			<button mat-raised-button color="primary" fxFlexFill (click)="getNextMatch()"
-					[disabled]="!waitingNextMatch || !sailsSocketService.subscribed">Load Next Match
+					[disabled]="isRunning() || !sailsSocketService.subscribed">Load Next Match
 			</button>
 			<div *ngIf="!sailsSocketService.subscribed" class="mat-subheading-2">Socket Needs to be Connected</div>
 		</div>

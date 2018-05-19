@@ -43,6 +43,9 @@ export class ControlComponent implements OnInit, OnDestroy {
 		this.unsubscribe$.next();
 		this.unsubscribe$.complete();
 	}
+	isRunning(){
+		return TimerStatus.RUNNING === this.timer.status && this.timer.time > 0;
+	}
 
 	processTimer( next: Timer ) {
 		if ( next.status === TimerStatus.RUNNING && next.time === 0 ) {
